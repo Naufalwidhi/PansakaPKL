@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/onboarding"
+    android:orientation="vertical"
+    tools:context=".OnBoardingActivity">
+
+    <ImageView
+        android:id="@+id/img_logo_splashscreen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="90dp"
+        android:src="@drawable/img_logo"
+        android:contentDescription="@string/image_splash_screen" />
+
+    <TextView
+        android:id="@+id/tv_backoffice_splashscreen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/img_logo_splashscreen"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="@string/backoffice"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_backoffice_splashscreen"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="@string/aplikasi_pansaka"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="0dp"
+        android:contentDescription="@string/image_splash_screen"
+        android:scaleType="fitXY"
+        android:src="@drawable/img_splash_screen" />
+
+</RelativeLayout>

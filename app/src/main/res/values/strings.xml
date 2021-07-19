@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Pansaka</string>
+
+    <!-- Splash Screen -->
+    <string name="image_splash_screen">image_splash_screen</string>
+    <string name="backoffice">BACKOFFICE</string>
+    <string name="aplikasi_pansaka">APLIKASI PANSAKA</string>
+
+    <!-- Login -->
+    <string name="welome">Selamat Datang</string>
+    <string name="inputan">Masukkan username dan password untuk masuk ke aplikasi</string>
+    <string name="username">Masukkan Username</string>
+    <string name="password">Masukkan Password</string>
+    <string name="masuk">Masuk</string>
+
+
+</resources>
