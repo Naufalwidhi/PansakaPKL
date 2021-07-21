@@ -1,7 +1,8 @@
-package com.technobit.pansaka
+package com.technobit.pansaka.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.technobit.pansaka.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
