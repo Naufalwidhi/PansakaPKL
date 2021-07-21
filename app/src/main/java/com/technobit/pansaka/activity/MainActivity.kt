@@ -9,10 +9,10 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.navigation.NavigationView
-import com.technobit.pansaka.CustomerFragment
-import com.technobit.pansaka.DashboardFragment
+import com.technobit.pansaka.fragment.CustomerFragment
+import com.technobit.pansaka.fragment.DashboardFragment
 import com.technobit.pansaka.R
-import com.technobit.pansaka.TransaksiFragment
+import com.technobit.pansaka.fragment.TransaksiFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 
