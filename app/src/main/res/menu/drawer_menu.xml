@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_menu">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/dashboard"
+            android:icon="@drawable/icon_dashboard"
+            android:title="@string/dashboard" />
+        <item
+            android:id="@+id/customer"
+            android:icon="@drawable/icon_customer"
+            android:title="@string/customer" />
+        <item
+            android:id="@+id/transaksi"
+            android:icon="@drawable/icon_transaksi"
+            android:title="@string/transaksi" />
+        <item
+            android:id="@+id/logout"
+            android:icon="@drawable/icon_logout"
+            android:title="@string/logout" />
+    </group>
+
+</menu>
