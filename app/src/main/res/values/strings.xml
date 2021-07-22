@@ -26,4 +26,9 @@
     <string name="dashboard">Dashboard</string>
     <string name="logout">Logout</string>
 
+    <!-- Dashboard -->
+    <string name="BOPA">Backoffice Pansaka App</string>
+    <string name="admin">Selamat datang, Admin</string>
+
+
 </resources>

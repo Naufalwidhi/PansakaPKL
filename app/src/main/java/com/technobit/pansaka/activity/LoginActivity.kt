@@ -8,6 +8,7 @@ import android.widget.EditText
 import android.widget.Toast
 import com.technobit.pansaka.R
 import com.technobit.pansaka.api.Client
+import com.technobit.pansaka.data.Prefs
 import com.technobit.pansaka.data.User
 import retrofit2.Call
 import retrofit2.Callback
@@ -18,6 +19,8 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var username: EditText
     private lateinit var password: EditText
     private lateinit var login: Button
+
+    private val myPref by lazy { Prefs(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,6 +54,15 @@ class LoginActivity : AppCompatActivity() {
 
                 override fun onResponse(call: Call<User>, response: Response<User>) {
                     if (response.isSuccessful) {
+
+                        val id = response.body()!!.id_users
+                        val name = response.body()!!.name
+                        val token = response.body()!!.token
+                        val email = response.body()!!.email
+                        val username = response.body()!!.username
+
+                        myPref.saveuser(id, name, username, email, token)
+
                         val intent = Intent(this@LoginActivity, MainActivity::class.java)
                         startActivity(intent)
                     } else {

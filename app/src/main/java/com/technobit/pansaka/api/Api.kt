@@ -14,7 +14,7 @@ interface Api {
         "appId: 1"
     )
     @FormUrlEncoded
-    @POST("/api/v1/login")
+    @POST("login")
     fun login(
         @Field("username") username: String,
         @Field("password") password: String
@@ -28,7 +28,7 @@ interface Api {
         "appId: 1"
     )
     @FormUrlEncoded
-    @POST("/api/v1/login")
+    @POST("getsummary")
     fun summary(
         @Header("Authorization") token: String,
         @Field("username") username: String,
