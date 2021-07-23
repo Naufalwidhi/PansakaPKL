@@ -8,7 +8,7 @@
 
     <!-- Login -->
     <string name="welome">Selamat Datang</string>
-    <string name="inputan">Masukkan username dan password untuk masuk ke aplikasi</string>
+    <string name="inputan">Masukkan username dan password untuk masuk ke aplikasi.</string>
     <string name="username">Masukkan Username</string>
     <string name="password">Masukkan Password</string>
     <string name="masuk">Masuk</string>
@@ -27,8 +27,23 @@
     <string name="logout">Logout</string>
 
     <!-- Dashboard -->
-    <string name="BOPA">Backoffice Pansaka App</string>
+    <string name="BOPA">PANSAKA BACKOFFICE</string>
     <string name="admin">Selamat datang, Admin</string>
+    <string name="halo_admin">Halo Admin</string>
+    <string name="agustus">AGUSTUS</string>
+    <string name="transaksi_terbaru">Transaksi terbaru</string>
+    <string name="total_transaksi">Total Transaksi</string>
+    <string name="nominal_total_transaksi">209.457</string>
+    <string name="presentasi_total_transaksi">78.9 %</string>
+    <string name="total_omzet">Total Omzet</string>
+    <string name="nominal_total_omzet">Rp180.300.600</string>
+    <string name="presentasi_total_omzet">80.3 %</string>
+    <string name="total_buyer">Total Buyer</string>
+    <string name="nominal_total_buyer">25.304</string>
+    <string name="presentasi_total_buyer">24.5 %</string>
+    <string name="total_seller">Total Seller</string>
+    <string name="nominal_total_seller">2.350</string>
+    <string name="presentasi_total_seller">15.2 %</string>
 
 
 </resources>

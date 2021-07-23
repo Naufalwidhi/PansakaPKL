@@ -12,7 +12,9 @@
         android:layout_height="75dp"
         android:layout_marginTop="20dp"
         android:src="@drawable/icon_profile"
-        tools:ignore="ContentDescription" />
+        tools:ignore="ContentDescription"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -20,14 +22,15 @@
         android:text="@string/BOPA"
         android:textColor="@color/black"
         android:textSize="20sp"
-        android:textStyle="bold" />
+        android:fontFamily="@font/opensans_bold"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/admin"
         android:textColor="@color/black"
-        android:textSize="18sp" />
+        android:textSize="14sp"
+        android:fontFamily="@font/opensans_regular"/>
 
 
 </LinearLayout>
