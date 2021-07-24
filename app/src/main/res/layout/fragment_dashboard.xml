@@ -40,7 +40,8 @@
         android:paddingEnd="15dp"
         android:text="@string/agustus"
         android:textColor="#FF515151"
-        android:textSize="12sp" />
+        android:textSize="12sp"
+        tools:ignore="RtlSymmetry" />
 
 
     <RelativeLayout
@@ -55,7 +56,8 @@
             android:layout_height="220dp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="40dp"
-            android:background="@drawable/bg_dashboard" />
+            android:background="@drawable/bg_dashboard"
+            tools:ignore="ContentDescription" />
 
         <LinearLayout
             android:id="@+id/container_total_transaksi"
@@ -73,7 +75,8 @@
                 android:layout_margin="10dp"
                 android:text="@string/total_transaksi"
                 android:textColor="#676767"
-                android:textSize="11sp" />
+                android:textSize="11sp"
+                tools:ignore="SmallSp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -89,7 +92,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:layout_margin="10dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                tools:ignore="UseCompoundDrawables">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -97,12 +101,14 @@
                     android:text="@string/presentasi_total_transaksi"
                     android:textColor="#4CAF50"
                     android:textSize="11sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    tools:ignore="SmallSp" />
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/icon_up" />
+                    android:src="@drawable/icon_up"
+                    tools:ignore="ContentDescription" />
 
             </LinearLayout>
 
@@ -126,7 +132,8 @@
                 android:layout_margin="10dp"
                 android:text="@string/total_omzet"
                 android:textColor="#676767"
-                android:textSize="11sp" />
+                android:textSize="11sp"
+                tools:ignore="SmallSp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -142,7 +149,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:layout_margin="10dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                tools:ignore="UseCompoundDrawables">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -150,12 +158,14 @@
                     android:text="@string/presentasi_total_omzet"
                     android:textColor="#4CAF50"
                     android:textSize="11sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    tools:ignore="SmallSp" />
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/icon_up" />
+                    android:src="@drawable/icon_up"
+                    tools:ignore="ContentDescription" />
 
             </LinearLayout>
 
@@ -185,7 +195,8 @@
                 android:layout_margin="10dp"
                 android:text="@string/total_buyer"
                 android:textColor="#676767"
-                android:textSize="11sp" />
+                android:textSize="11sp"
+                tools:ignore="SmallSp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -201,7 +212,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:layout_margin="10dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                tools:ignore="UseCompoundDrawables">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -209,12 +221,14 @@
                     android:text="@string/presentasi_total_buyer"
                     android:textColor="#4CAF50"
                     android:textSize="11sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    tools:ignore="SmallSp" />
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/icon_up" />
+                    android:src="@drawable/icon_up"
+                    tools:ignore="ContentDescription" />
 
             </LinearLayout>
 
@@ -233,7 +247,8 @@
                 android:layout_margin="10dp"
                 android:text="@string/total_seller"
                 android:textColor="#676767"
-                android:textSize="11sp" />
+                android:textSize="11sp"
+                tools:ignore="SmallSp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -249,7 +264,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:layout_margin="10dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                tools:ignore="UseCompoundDrawables">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -257,12 +273,14 @@
                     android:text="@string/presentasi_total_seller"
                     android:textColor="#4CAF50"
                     android:textSize="11sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    tools:ignore="SmallSp" />
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/icon_up" />
+                    android:src="@drawable/icon_up"
+                    tools:ignore="ContentDescription" />
 
             </LinearLayout>
 
@@ -282,7 +300,8 @@
         android:paddingStart="13dp"
         android:text="@string/transaksi_terbaru"
         android:textColor="@color/black"
-        android:textSize="16dp" />
+        android:textSize="16dp"
+        tools:ignore="RtlSymmetry,SpUsage" />
 
 
     <ListView

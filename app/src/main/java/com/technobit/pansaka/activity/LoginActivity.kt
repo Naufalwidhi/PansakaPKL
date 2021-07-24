@@ -22,6 +22,16 @@ class LoginActivity : AppCompatActivity() {
 
     private val myPref by lazy { Prefs(this) }
 
+    override fun onStart() {
+        super.onStart()
+        val token = myPref.getusertoken()
+        if(token.isNotEmpty()){
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)

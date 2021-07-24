@@ -20,4 +20,6 @@ class Prefs(context: Context) {
     fun getusername1() = prefs.getString("username", "")!!
     fun getuseremail() = prefs.getString("email", "")!!
     fun getusertoken() = prefs.getString("token", "")!!
+
+
 }
