@@ -5,12 +5,14 @@
     android:layout_height="match_parent"
     tools:context=".fragment.TransaksiFragment">
 
-    <TextView
+    <ListView
+        android:id="@+id/list_view_dashboard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:text="@string/transaksi_fragment"
-        android:textSize="30sp" />
+        android:layout_below="@+id/tv_transaksi_terbaru_dashboard"
+        android:layout_marginTop="10dp"
+        tools:listitem="@layout/list_item_dashboard">
+
+    </ListView>
 
 </FrameLayout>

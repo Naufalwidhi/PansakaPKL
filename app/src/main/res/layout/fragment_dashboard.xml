@@ -286,12 +286,10 @@
 
         </LinearLayout>
 
-
     </LinearLayout>
 
-
     <TextView
-        android:id="@+id/tv_transaksi_terbaru_dashboard"
+        android:id="@+id/tv_transaksi_dashboard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/container_dasboard_bawah"
@@ -304,13 +302,11 @@
         tools:ignore="RtlSymmetry,SpUsage" />
 
 
-    <ListView
-        android:id="@+id/list_view_dashboard"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_transaksi_dashboard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_transaksi_terbaru_dashboard"
-        android:layout_marginTop="10dp">
-
-    </ListView>
+        android:layout_below="@+id/tv_transaksi_dashboard"
+        />
 
 </RelativeLayout>

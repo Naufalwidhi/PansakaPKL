@@ -28,6 +28,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    buildFeatures{
+        viewBinding true
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -59,7 +64,9 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.10.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.drawerlayout:drawerlayout:1.1.1'
+    implementation 'androidx.wear:wear:1.1.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
+    compileOnly 'com.google.android.wearable:wearable:2.8.1'
 
     // ----------------------------------------------------------------
     // Parcelize
@@ -68,6 +75,10 @@ dependencies {
     implementation "androidx.room:room-runtime:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
 
+    // ----------------------------------------------------------------
+    // Circle Image View
+    // ----------------------------------------------------------------
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

@@ -30,6 +30,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val actionBar = supportActionBar
         actionBar?.title = "Pansaka Backoffice"
 
+        setUpToolbar("Pansaka Backoffice")
+
         val drawerToggle: ActionBarDrawerToggle = object : ActionBarDrawerToggle(
             this,
             drawerLayout,
@@ -54,6 +56,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             .replace(R.id.frame_layout, dashboardFragment)
             .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
             .commit()
+
+
     }
 
     override fun onNavigationItemSelected(menuItem: MenuItem): Boolean {
@@ -94,5 +98,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         } else {
             super.onBackPressed()
         }
+    }
+
+    private fun setUpToolbar(title: String){
+
+        setSupportActionBar(toolbar) // set toolbar
+        supportActionBar?.title = title //set title
+
     }
 }
