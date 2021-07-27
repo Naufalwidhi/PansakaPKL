@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Pansaka</string>
+    <string name="app_name">Pansaka Backoffice</string>
 
     <!-- Splash Screen -->
     <string name="image_splash_screen">image_splash_screen</string>
@@ -50,6 +50,16 @@
     values-round/strings.xml for round devices.
     -->
     <string name="hello_world">Hello Square World!</string>
+    <string name="profile">Profile</string>
+    <string name="list_data_buyer_dan_seller_aplikasi_pansaka">List data buyer dan seller aplikasi PANSAKA</string>
+    <string name="list_transaksi_aplikasi_pansaka">List transaksi aplikasi PANSAKA</string>
+    <string name="nama_profile">Naufal Widi A.</string>
+    <string name="ganti_password">Ganti Password</string>
+    <string name="keluar_dari_akun_anda">Keluar dari akun anda</string>
+    <string name="txt_ubah_password">Ubah password anda dengan password terbaru.</string>
+    <string name="title_ganti_password">Ganti Password</string>
+    <string name="masukkan_password_baru">Masukkan password baru</string>
+    <string name="masukkan_password_sekarang">Masukkan password sekarang</string>
 
 
 </resources>

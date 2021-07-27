@@ -20,7 +20,6 @@ class DetailTransaksiActivity : AppCompatActivity() {
 
         nama_produk_dashboard?.text = transaksi.nameProduct
         nama_toko_dashboard?.text = transaksi.nameShop
-        txt_detail_transaksi_dashboard?.text = transaksi.txtDetail
         jumlah_pcs_dashboard?.text = transaksi.pcs
         img_produk_dashboard?.apply {
 
@@ -29,7 +28,7 @@ class DetailTransaksiActivity : AppCompatActivity() {
                 .into(this)
         }
 
-        setUpToolbar(transaksi.txtDetail)
+        setUpToolbar(transaksi.nameProduct)
 
     }
 

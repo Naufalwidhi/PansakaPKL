@@ -37,8 +37,17 @@ class TransaksiDashboardAdapter (val listener : TransaksiDashboardListener) : Re
         return TransaksiDashboardVH(view)
     }
 
+    private val limit = 5
+
     override fun getItemCount(): Int {
         return transaksiDashboardData.size
+
+//        if (transaksiDashboardData.size > limit){
+//            return limit
+//        } else {
+//            return transaksiDashboardData.size
+//        }
+
     }
 
     override fun onBindViewHolder(holder: TransaksiDashboardVH, position: Int) {
@@ -52,7 +61,6 @@ class TransaksiDashboardVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         itemView.nama_produk_dashboard?.text = data.nameProduct
         itemView.nama_toko_dashboard?.text = data.nameShop
-        itemView.txt_detail_transaksi_dashboard?.text = data.txtDetail
         itemView.jumlah_pcs_dashboard?.text = data.pcs
         itemView.img_produk_dashboard?.apply {
 

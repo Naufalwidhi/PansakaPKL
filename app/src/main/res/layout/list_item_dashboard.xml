@@ -8,7 +8,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp">
+        android:padding="5dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -64,7 +64,7 @@
                         android:id="@+id/txt_detail_transaksi_dashboard"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Detail transaksi"
+                        android:text="Detail Transaksi"
                         android:textColor="#0F8AF9"
                         android:fontFamily="@font/opensans_regular"
                         android:textSize="13sp"

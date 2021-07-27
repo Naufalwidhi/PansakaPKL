@@ -15,6 +15,5 @@ class TransaksiDashboard (
     @SerializedName ("imagId") val imageId : Int,
     @SerializedName ("nameProduct") val nameProduct : String,
     @SerializedName ("nameShop") val nameShop : String,
-    @SerializedName ("txtDetail") val txtDetail : String,
     @SerializedName ("pcs") val pcs : String
     ):Parcelable
