@@ -17,7 +17,6 @@ import com.technobit.pansaka.R
 import com.technobit.pansaka.fragment.ProfileFragment
 import com.technobit.pansaka.fragment.TransaksiFragment
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.app_bar_main.*
 
 class MainActivity : AppCompatActivity() {
 

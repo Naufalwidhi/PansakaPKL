@@ -1,4 +1,4 @@
-package com.technobit.pansaka.data
+package com.technobit.pansaka.model
 
 import android.os.Parcelable
 import androidx.room.Entity
@@ -17,9 +17,9 @@ class DashboardSummary (
 @Parcelize
 @Entity
 class DashboardListTransaction(
-    @SerializedName("no_invoice") val noinvoice: String,
-    @SerializedName("product_name") val productname: String,
-    @SerializedName("image_path_product") val imagepathproduct: String,
-    @SerializedName("jumlah") val jumlah: String,
-    @SerializedName("total_harga") val totalharga: String
+    @SerializedName("id_checkout") val id_checkout: String,
+    @SerializedName("product_image") val product_image: String,
+    @SerializedName("name") val name: String,
+    @SerializedName("shop") val shop: String,
+    @SerializedName("qty") val qty: String
 ):Parcelable

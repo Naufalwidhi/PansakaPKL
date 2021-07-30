@@ -3,9 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragment.CustomerFragment"
-    android:padding="15dp">
+    android:padding="15dp"
+    tools:context=".fragment.CustomerFragment">
 
     <TextView
         android:id="@+id/tv_customer"
@@ -32,14 +31,14 @@
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_customer"
-        android:layout_below="@id/tv_inputan_customer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_inputan_customer" />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/tab_customer"/>
+        android:layout_below="@id/tab_customer" />
 
 </RelativeLayout>

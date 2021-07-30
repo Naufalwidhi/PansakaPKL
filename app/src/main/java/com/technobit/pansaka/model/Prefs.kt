@@ -1,4 +1,4 @@
-package com.technobit.pansaka.data
+package com.technobit.pansaka.model
 
 import android.content.Context
 import androidx.core.content.edit

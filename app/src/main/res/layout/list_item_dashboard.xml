@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="5dp">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="5dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -19,7 +14,7 @@
                 android:id="@+id/img_produk_dashboard"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:src="@drawable/mockup_foto_produk"/>
+                android:src="@drawable/mockup_foto_produk" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -30,63 +25,60 @@
                     android:id="@+id/nama_produk_dashboard"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/opensans_regular"
                     android:text="Sepatu Converse"
                     android:textColor="@color/black"
-                    android:fontFamily="@font/opensans_regular"
-                    android:textSize="16sp"
-                    android:layout_marginStart="10dp"/>
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/nama_toko_dashboard"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Converse Indonesia"
-                    android:textSize="13sp"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="4dp"
-                    android:textColor="#555555"/>
+                    android:text="Converse Indonesia"
+                    android:textColor="#555555"
+                    android:textSize="13sp" />
 
             </LinearLayout>
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true">
+
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-                <LinearLayout
+                <TextView
+                    android:id="@+id/txt_detail_transaksi_dashboard"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="3dp"
+                    android:fontFamily="@font/opensans_regular"
+                    android:text="Detail Transaksi"
+                    android:textColor="#0F8AF9"
+                    android:textSize="13sp" />
 
-                    <TextView
-                        android:id="@+id/txt_detail_transaksi_dashboard"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Detail Transaksi"
-                        android:textColor="#0F8AF9"
-                        android:fontFamily="@font/opensans_regular"
-                        android:textSize="13sp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="3dp"/>
-
-                    <TextView
-                        android:id="@+id/jumlah_pcs_dashboard"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="end"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="11dp"
-                        android:text="2 PCS"
-                        android:textColor="#555555"
-                        android:textSize="11sp"
-                        />
-
-                </LinearLayout>
+                <TextView
+                    android:id="@+id/jumlah_pcs_dashboard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="11dp"
+                    android:text="2 PCS"
+                    android:textColor="#555555"
+                    android:textSize="11sp" />
 
             </LinearLayout>
 
-    </RelativeLayout>
+        </LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>

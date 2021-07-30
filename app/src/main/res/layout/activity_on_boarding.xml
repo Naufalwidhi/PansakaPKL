@@ -11,8 +11,8 @@
         android:id="@+id/img_logo_splashscreen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
         android:contentDescription="@string/image_splash_screen"
         android:src="@drawable/img_logo" />
 
@@ -22,23 +22,23 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/img_logo_splashscreen"
         android:layout_marginTop="25dp"
+        android:fontFamily="@font/opensans_extrabolditalic"
         android:gravity="center"
         android:text="@string/backoffice"
         android:textColor="@color/white"
         android:textSize="30sp"
-        android:textStyle="bold"
-        android:fontFamily="@font/opensans_extrabolditalic"/>
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_backoffice_splashscreen"
+        android:fontFamily="@font/opensans_extrabolditalic"
         android:gravity="center"
         android:text="@string/aplikasi_pansaka"
         android:textColor="@color/white"
         android:textSize="30sp"
-        android:textStyle="bold"
-        android:fontFamily="@font/opensans_extrabolditalic"/>
+        android:textStyle="bold" />
 
     <ImageView
         android:layout_width="match_parent"

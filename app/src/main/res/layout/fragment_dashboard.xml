@@ -6,252 +6,214 @@
     android:padding="15dp"
     tools:context=".fragment.DashboardFragment">
 
-        <TextView
-            android:id="@+id/tv_dashboard"
+    <TextView
+        android:id="@+id/tv_dashboard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/opensans_semibold"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:text="@string/dashboard"
+        android:textColor="@color/black"
+        android:textSize="34sp" />
+
+    <TextView
+        android:id="@+id/tv_inputan_dashboard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_dashboard"
+        android:fontFamily="@font/opensans_regular"
+        android:paddingStart="13dp"
+        android:paddingEnd="10dp"
+        android:text="@string/halo_admin"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tv_bulan_dashboard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_inputan_dashboard"
+        android:fontFamily="@font/opensans_semibold"
+        android:gravity="end"
+        android:paddingEnd="15dp"
+        android:text="@string/agustus"
+        android:textColor="#FF515151"
+        android:textSize="12sp"
+        tools:ignore="RtlSymmetry" />
+
+
+    <RelativeLayout
+        android:id="@+id/container_dasboard_atas"
+        android:layout_width="match_parent"
+        android:layout_height="260dp"
+        android:layout_below="@+id/tv_bulan_dashboard"
+        android:layout_centerHorizontal="true">
+
+        <ImageView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/opensans_semibold"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
-            android:text="@string/dashboard"
-            android:textColor="@color/black"
-            android:textSize="34sp" />
-
-        <TextView
-            android:id="@+id/tv_inputan_dashboard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_dashboard"
-            android:fontFamily="@font/opensans_regular"
-            android:paddingStart="13dp"
-            android:paddingEnd="10dp"
-            android:text="@string/halo_admin"
-            android:textColor="@color/black"
-            android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/tv_bulan_dashboard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_inputan_dashboard"
-            android:fontFamily="@font/opensans_semibold"
-            android:gravity="end"
-            android:paddingEnd="15dp"
-            android:text="@string/agustus"
-            android:textColor="#FF515151"
-            android:textSize="12sp"
-            tools:ignore="RtlSymmetry" />
-
-
-        <RelativeLayout
-            android:id="@+id/container_dasboard_atas"
-            android:layout_width="match_parent"
-            android:layout_height="260dp"
-            android:layout_below="@+id/tv_bulan_dashboard"
-            android:layout_centerHorizontal="true">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="210dp"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="40dp"
-                android:background="@drawable/bg_dashboard"
-                tools:ignore="ContentDescription" />
-
-            <LinearLayout
-                android:id="@+id/container_total_transaksi"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="6dp"
-                android:background="@drawable/dasboard_stats_bg"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:text="@string/total_transaksi"
-                    android:textColor="#676767"
-                    android:textSize="11sp"
-                    tools:ignore="SmallSp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/opensans_extrabold"
-                    android:gravity="center"
-                    android:text="@string/nominal_total_transaksi"
-                    android:textColor="#0E77D6"
-                    android:textSize="30sp" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_margin="10dp"
-                    android:orientation="horizontal"
-                    tools:ignore="UseCompoundDrawables">
-
-
-                </LinearLayout>
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/container_total_omset"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/container_total_transaksi"
-                android:layout_centerHorizontal="true"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/dasboard_stats_bg"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:text="@string/total_omzet"
-                    android:textColor="#676767"
-                    android:textSize="11sp"
-                    tools:ignore="SmallSp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/opensans_extrabold"
-                    android:gravity="center"
-                    android:text="@string/nominal_total_omzet"
-                    android:textColor="#0E77D6"
-                    android:textSize="30sp" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_margin="10dp"
-                    android:orientation="horizontal"
-                    tools:ignore="UseCompoundDrawables">
-
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-        </RelativeLayout>
-
+            android:layout_height="210dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/bg_dashboard"
+            tools:ignore="ContentDescription" />
 
         <LinearLayout
-            android:id="@+id/container_dasboard_bawah"
+            android:id="@+id/container_total_transaksi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/container_dasboard_atas"
             android:layout_centerHorizontal="true"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/dasboard_stats_bg"
+            android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="150dp"
+            <TextView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/dasboard_stats_bg"
-                android:orientation="vertical">
+                android:layout_margin="10dp"
+                android:text="@string/total_transaksi"
+                android:textColor="#676767"
+                android:textSize="11sp"
+                tools:ignore="SmallSp" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:text="@string/total_buyer"
-                    android:textColor="#676767"
-                    android:textSize="11sp"
-                    tools:ignore="SmallSp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/opensans_extrabold"
-                    android:gravity="center"
-                    android:text="@string/nominal_total_buyer"
-                    android:textColor="#0E77D6"
-                    android:textSize="30sp" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_margin="10dp"
-                    android:orientation="horizontal"
-                    tools:ignore="UseCompoundDrawables">
-
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="150dp"
+            <TextView
+                android:id="@+id/tv_total_transaksi_dashboard"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:background="@drawable/dasboard_stats_bg"
-                android:orientation="vertical">
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/opensans_extrabold"
+                android:gravity="center"
+                android:text="@string/nominal_total_transaksi"
+                android:textColor="#0E77D6"
+                android:textSize="30sp" />
+        </LinearLayout>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:text="@string/total_seller"
-                    android:textColor="#676767"
-                    android:textSize="11sp"
-                    tools:ignore="SmallSp" />
+        <LinearLayout
+            android:id="@+id/container_total_omset"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/container_total_transaksi"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/dasboard_stats_bg"
+            android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/opensans_extrabold"
-                    android:gravity="center"
-                    android:text="@string/nominal_total_seller"
-                    android:textColor="#0E77D6"
-                    android:textSize="30sp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/total_omzet"
+                android:textColor="#676767"
+                android:textSize="11sp"
+                tools:ignore="SmallSp" />
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_margin="10dp"
-                    android:orientation="horizontal"
-                    tools:ignore="UseCompoundDrawables">
-
-
-                </LinearLayout>
-
-            </LinearLayout>
+            <TextView
+                android:id="@+id/tv_total_omset_dashboard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/opensans_extrabold"
+                android:gravity="center"
+                android:text="@string/nominal_total_omzet"
+                android:textColor="#0E77D6"
+                android:textSize="30sp" />
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/tv_transaksi_dashboard"
-            android:layout_width="match_parent"
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/container_dasboard_bawah"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/container_dasboard_atas"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_below="@id/container_dasboard_bawah"
-            android:layout_marginTop="15dp"
-            android:fontFamily="@font/opensans_semibold"
-            android:paddingStart="13dp"
-            android:text="@string/transaksi_terbaru"
-            android:textColor="@color/black"
-            android:textSize="16dp"
-            tools:ignore="RtlSymmetry,SpUsage" />
+            android:background="@drawable/dasboard_stats_bg"
+            android:orientation="vertical">
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/total_buyer"
+                android:textColor="#676767"
+                android:textSize="11sp"
+                tools:ignore="SmallSp" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_transaksi_dashboard"
-            android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/tv_total_buyer_dashboard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/opensans_extrabold"
+                android:gravity="center"
+                android:text="@string/nominal_total_buyer"
+                android:textColor="#0E77D6"
+                android:textSize="30sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_transaksi_dashboard"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/dasboard_stats_bg"
+            android:orientation="vertical">
 
-            />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/total_seller"
+                android:textColor="#676767"
+                android:textSize="11sp"
+                tools:ignore="SmallSp" />
 
-    
+            <TextView
+                android:id="@+id/tv_total_seller_dashboard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/opensans_extrabold"
+                android:gravity="center"
+                android:text="@string/nominal_total_seller"
+                android:textColor="#0E77D6"
+                android:textSize="30sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_transaksi_dashboard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/container_dasboard_bawah"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/opensans_semibold"
+        android:paddingStart="13dp"
+        android:text="@string/transaksi_terbaru"
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        tools:ignore="RtlSymmetry,SpUsage" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_transaksi_dashboard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_transaksi_dashboard"
+
+        />
+
+
 </RelativeLayout>

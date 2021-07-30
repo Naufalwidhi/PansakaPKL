@@ -7,9 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.technobit.pansaka.R
 
-class TransaksiFragment : Fragment() {
-    private var param1: String? = null
-    private var param2: String? = null
+class CustomerBuyerFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,8 +18,6 @@ class TransaksiFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_transaksi, container, false)
+        return inflater.inflate(R.layout.fragment_customer_buyer, container, false)
     }
-
-
 }

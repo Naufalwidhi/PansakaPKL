@@ -61,5 +61,7 @@
     <string name="masukkan_password_baru">Masukkan password baru</string>
     <string name="masukkan_password_sekarang">Masukkan password sekarang</string>
 
+    <string name="admin2">ADMIN</string>
+    <string name="gantipassword">Ganti password akun anda</string>
 
 </resources>

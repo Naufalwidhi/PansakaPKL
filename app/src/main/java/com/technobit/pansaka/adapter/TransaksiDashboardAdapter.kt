@@ -10,22 +10,22 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.technobit.pansaka.R
-import com.technobit.pansaka.model.TransaksiDashboard
+import com.technobit.pansaka.model.DashboardListTransaction
 import kotlinx.android.synthetic.main.fragment_dashboard.view.*
 import kotlinx.android.synthetic.main.list_item_dashboard.view.*
 
 class TransaksiDashboardAdapter (val listener : TransaksiDashboardListener) : RecyclerView.Adapter<TransaksiDashboardVH>(){
 
-        private val transaksiDashboardData = arrayListOf<TransaksiDashboard>()
+        private val transaksiDashboardData = arrayListOf<DashboardListTransaction>()
 
-        fun updateData(data: ArrayList<TransaksiDashboard>){
+        fun updateData(data: ArrayList<DashboardListTransaction>){
             transaksiDashboardData.clear()
             transaksiDashboardData.addAll(data)
             notifyDataSetChanged()
         }
 
-    fun addData(transaksiDashboard : TransaksiDashboard){
-        transaksiDashboardData.add(transaksiDashboard)
+    fun addData(dashboardListTransaction: DashboardListTransaction){
+        transaksiDashboardData.add(dashboardListTransaction)
         notifyDataSetChanged()
     }
 
@@ -37,17 +37,9 @@ class TransaksiDashboardAdapter (val listener : TransaksiDashboardListener) : Re
         return TransaksiDashboardVH(view)
     }
 
-    private val limit = 5
 
     override fun getItemCount(): Int {
         return transaksiDashboardData.size
-
-//        if (transaksiDashboardData.size > limit){
-//            return limit
-//        } else {
-//            return transaksiDashboardData.size
-//        }
-
     }
 
     override fun onBindViewHolder(holder: TransaksiDashboardVH, position: Int) {
@@ -57,22 +49,20 @@ class TransaksiDashboardAdapter (val listener : TransaksiDashboardListener) : Re
 
 class TransaksiDashboardVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-    fun bind(data: TransaksiDashboard, listener: TransaksiDashboardListener) {
+    fun bind(data: DashboardListTransaction, listener: TransaksiDashboardListener) {
 
-        itemView.nama_produk_dashboard?.text = data.nameProduct
-        itemView.nama_toko_dashboard?.text = data.nameShop
-        itemView.jumlah_pcs_dashboard?.text = data.pcs
+        itemView.nama_produk_dashboard?.text = data.name
+        itemView.nama_toko_dashboard?.text = data.shop
+        itemView.jumlah_pcs_dashboard?.text = data.qty
         itemView.img_produk_dashboard?.apply {
 
 //            load gambar
             Glide.with(context)
-                .load(data.imageId)
+                .load(data.product_image)
                 .into(this)
 
         }
-
         itemView.rootView.setOnClickListener {
-
             listener.onClick(adapterPosition, data)
 
         }
@@ -82,6 +72,6 @@ class TransaksiDashboardVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
 interface TransaksiDashboardListener{
 
-    fun onClick(position: Int, transaksiDashboard: TransaksiDashboard)
+    fun onClick(position: Int, transaksiDashboard: DashboardListTransaction)
 
 }
