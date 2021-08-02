@@ -17,9 +17,7 @@ import com.technobit.pansaka.adapter.Adapter
 import com.technobit.pansaka.adapter.TransaksiDashboardAdapter
 import com.technobit.pansaka.adapter.TransaksiDashboardListener
 import com.technobit.pansaka.api.Client
-import com.technobit.pansaka.model.DashboardListTransaction
-import com.technobit.pansaka.model.DashboardSummary
-import com.technobit.pansaka.model.Prefs
+import com.technobit.pansaka.model.*
 import kotlinx.android.synthetic.main.fragment_dashboard.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -27,7 +25,8 @@ import retrofit2.Response
 
 class DashboardFragment : Fragment(), TransaksiDashboardListener {
 
-    private val myPref by lazy { Prefs(this.requireContext()) }
+    private val myPrefid by lazy { PrefsId(this.requireContext()) }
+    private val myPreftoken by lazy { PrefsToken(this.requireContext()) }
     private lateinit var transaksiDashboardAdapter: TransaksiDashboardAdapter
     private lateinit var rvhome: RecyclerView
     private lateinit var totaltransaksi: TextView
@@ -62,17 +61,17 @@ class DashboardFragment : Fragment(), TransaksiDashboardListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        rvhome = requireView().findViewById(R.id.rv_transaksi_dashboard)
+        rvhome = view.findViewById(R.id.rv_transaksi_dashboard)
 
-        totaltransaksi = requireView().findViewById(R.id.tv_total_transaksi_dashboard)
-        totalomset = requireView().findViewById(R.id.tv_total_omset_dashboard)
-        totalbuyer = requireView().findViewById(R.id.tv_total_buyer_dashboard)
-        totalseller = requireView().findViewById(R.id.tv_total_seller_dashboard)
+        totaltransaksi = view.findViewById(R.id.tv_total_transaksi_dashboard)
+        totalomset = view.findViewById(R.id.tv_total_omset_dashboard)
+        totalbuyer = view.findViewById(R.id.tv_total_buyer_dashboard)
+        totalseller = view.findViewById(R.id.tv_total_seller_dashboard)
 
         appkey = "x5fgFV9nK9UohrCeSDHO4LuHVLySNM4Y"
         appid = "1"
-        token = myPref.getusertoken()
-        id_user = myPref.getuserid()
+        token = myPreftoken.getusertoken()
+        id_user = myPrefid.getuserid()
 
         loadsummary()
 
@@ -123,7 +122,6 @@ class DashboardFragment : Fragment(), TransaksiDashboardListener {
                     }
                 }
             })
-
     }
 
     private fun setView() {

@@ -44,7 +44,7 @@ interface Api {
     ): Call<DashboardSummary>
 
     @FormUrlEncoded
-    @POST("getlisttransaction")
+    @GET("getlisttransaction")
     fun listtransaction(
         @Header("key") appKey: String,
         @Header("Authorization") token: String,
@@ -53,7 +53,7 @@ interface Api {
     ): Call<DashboardListTransaction>
 
     @FormUrlEncoded
-    @POST("getcustomerbuyer")
+    @GET("getcustomerbuyer")
     fun customerbuyer(
         @Header("key") appKey: String,
         @Header("Authorization") token: String,
@@ -62,11 +62,28 @@ interface Api {
     ): Call<CustomerBuyer>
 
     @FormUrlEncoded
-    @POST("getcustomerseller")
+    @GET("getcustomerseller")
     fun customerseller(
         @Header("key") appKey: String,
         @Header("Authorization") token: String,
         @Header("appId") appId: String,
         @Field("id_user") id_user: String
     ): Call<CustomerSeller>
+
+    @FormUrlEncoded
+    @GET("getprofile")
+    fun profile(
+        @Header("key") appKey: String,
+        @Header("Authorization") token: String,
+        @Header("appId") appId: String,
+        @Field("id_user") id_user: String
+    ): Call<Profile>
+    @FormUrlEncoded
+    @GET("getListTransactionDetail")
+    fun listTransactionDetail(
+        @Header("key") appKey: String,
+        @Header("Authorization") token: String,
+        @Header("appId") appId: String,
+        @Field("id_user") id_user: String
+    ): Call<Transaction>
 }

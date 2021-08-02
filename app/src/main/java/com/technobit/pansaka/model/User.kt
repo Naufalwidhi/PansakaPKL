@@ -18,6 +18,15 @@ class User (
 
 @Parcelize
 @Entity
+class Profile ( 
+    @SerializedName("name") val nameprofile: String,
+    @SerializedName("address") val address: String,
+    @SerializedName("email") val email: String,
+    @SerializedName("url_profile_picture") val profilepic: String
+):Parcelable
+
+@Parcelize
+@Entity
 class token (
     @SerializedName("token") val token: String
 ):Parcelable

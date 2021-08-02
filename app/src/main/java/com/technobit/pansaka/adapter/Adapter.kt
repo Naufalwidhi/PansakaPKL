@@ -8,9 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.technobit.pansaka.R
-import com.technobit.pansaka.model.TransaksiDashboard
+import com.technobit.pansaka.model.DashboardListTransaction
 
-class Adapter(private val listdata: ArrayList<TransaksiDashboard>): RecyclerView.Adapter<Adapter.AdapterViewHolder>() {
+class Adapter(private val listdata: ArrayList<DashboardListTransaction>): RecyclerView.Adapter<Adapter.AdapterViewHolder>() {
 
     private lateinit var onItemClickCallback: OnItemClickCallback
 
@@ -33,17 +33,17 @@ class Adapter(private val listdata: ArrayList<TransaksiDashboard>): RecyclerView
     override fun onBindViewHolder(holder: AdapterViewHolder, position: Int) {
         val data = listdata[position]
         Glide.with(holder.itemView.context)
-            .load(data.imageId)
+            .load(data.product_image)
             .apply(RequestOptions().override(55, 55))
             .into(holder.imgPhoto)
-        holder.tvName.setText(data.nameProduct)
-        holder.tvDetail.setText(data.nameShop)
-        holder.tvYear.setText(data.pcs)
+        holder.tvName.setText(data.name)
+        holder.tvDetail.setText(data.shop)
+        holder.tvYear.setText(data.qty)
         holder.itemView.setOnClickListener { onItemClickCallback.onItemClicked(listdata[holder.adapterPosition]) }
     }
 
     interface OnItemClickCallback {
-        fun onItemClicked(data: TransaksiDashboard)
+        fun onItemClicked(data: DashboardListTransaction)
     }
 
     override fun getItemCount(): Int {

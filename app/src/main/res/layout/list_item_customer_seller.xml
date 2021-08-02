@@ -2,11 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="10dp"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:padding="10dp">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/img_produk_customer_buyer"
+        android:id="@+id/img_produk_customer_seller"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
@@ -17,8 +17,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:orientation="vertical">
+
         <TextView
-            android:id="@+id/nama_produk_customer_buyer"
+            android:id="@+id/nama_produk_customer_seller"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -28,7 +29,7 @@
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/email_customer_buyer"
+            android:id="@+id/email_customer_seller"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -38,7 +39,7 @@
             android:textSize="13sp" />
 
         <TextView
-            android:id="@+id/no_telp_customer_buyer"
+            android:id="@+id/no_telp_customer_seller"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"

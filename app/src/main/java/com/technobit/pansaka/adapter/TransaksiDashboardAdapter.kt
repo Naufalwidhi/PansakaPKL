@@ -1,17 +1,12 @@
 package com.technobit.pansaka.adapter
 
-import android.app.Activity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.technobit.pansaka.R
 import com.technobit.pansaka.model.DashboardListTransaction
-import kotlinx.android.synthetic.main.fragment_dashboard.view.*
 import kotlinx.android.synthetic.main.list_item_dashboard.view.*
 
 class TransaksiDashboardAdapter (val listener : TransaksiDashboardListener) : RecyclerView.Adapter<TransaksiDashboardVH>(){

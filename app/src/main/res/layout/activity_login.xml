@@ -35,7 +35,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_inputan_login"
         android:layout_marginTop="60dp"
-        android:hint="@string/username">
+        android:hint="@string/username"
+        android:textColorHint="@color/grey">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_username_login"
@@ -51,7 +52,9 @@
         android:layout_below="@id/til_username_login"
         android:layout_marginTop="16dp"
         android:hint="@string/password"
-        app:passwordToggleEnabled="true">
+        android:textColorHint="@color/grey"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/grey">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_password_login"

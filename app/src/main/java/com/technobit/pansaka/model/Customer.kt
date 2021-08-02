@@ -8,7 +8,7 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 @Entity
 class CustomerBuyer(
-    @SerializedName("name") val custname: Int,
+    @SerializedName("name") val custname: String,
     @SerializedName("address") val custaddress: String,
     @SerializedName("email") val custemail: String,
     @SerializedName("image_path_profile_picture") val custprofile: String,
@@ -18,7 +18,7 @@ class CustomerBuyer(
 @Parcelize
 @Entity
 class CustomerSeller(
-    @SerializedName("name") val sellername: Int,
+    @SerializedName("name") val sellername: String,
     @SerializedName("address") val selleraddress: String,
     @SerializedName("email") val selleremail: String,
     @SerializedName("image_path_profile_picture") val sellerprofile: String,
