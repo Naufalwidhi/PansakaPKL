@@ -8,8 +8,8 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 @Entity
 class User (
-    @SerializedName("token") val token: String,
     @SerializedName("id_users") val id_users: Int,
+    @SerializedName("token") val token: String,
     @SerializedName("username") val username: String,
     @SerializedName("name") val name: String,
     @SerializedName("email") val email: String,

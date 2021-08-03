@@ -15,8 +15,6 @@ import retrofit2.Response
 
 class LoginActivity : AppCompatActivity() {
 
-    private lateinit var username: EditText
-    private lateinit var password: EditText
     private lateinit var login: Button
 
     private val myPrefid by lazy { PrefsId(this) }
@@ -37,7 +35,6 @@ class LoginActivity : AppCompatActivity() {
                             finish()
                         }
                     }
-
                     override fun onFailure(call: Call<token>, t: Throwable) {
                         Toast.makeText(this@LoginActivity, t.message, Toast.LENGTH_SHORT).show()
                     }
@@ -56,8 +53,8 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        username = findViewById(R.id.et_username_login)
-        password = findViewById(R.id.et_password_login)
+        val username = findViewById<EditText>(R.id.et_username_login)
+        val password = findViewById<EditText>(R.id.et_password_login)
         login = findViewById(R.id.btn_login)
 
         login.setOnClickListener {
@@ -76,14 +73,15 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun signin(username: String, password: String) {
+
         Client.myApiClient()
             .login(username, password)
             .enqueue(object : Callback<User> {
                 override fun onFailure(call: Call<User>, t: Throwable) {
                     Toast.makeText(this@LoginActivity, t.message, Toast.LENGTH_SHORT).show()
                 }
-
                 override fun onResponse(call: Call<User>, response: Response<User>) {
+
                     if (response.isSuccessful) {
 
                         val id = response.body()?.id_users

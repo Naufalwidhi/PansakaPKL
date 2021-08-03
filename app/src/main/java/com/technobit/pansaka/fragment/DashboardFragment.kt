@@ -3,6 +3,7 @@ package com.technobit.pansaka.fragment
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -68,10 +69,6 @@ class DashboardFragment : Fragment(), TransaksiDashboardListener {
         totalbuyer = view.findViewById(R.id.tv_total_buyer_dashboard)
         totalseller = view.findViewById(R.id.tv_total_seller_dashboard)
 
-        appkey = "x5fgFV9nK9UohrCeSDHO4LuHVLySNM4Y"
-        appid = "1"
-        token = myPreftoken.getusertoken()
-        id_user = myPrefid.getuserid()
 
         loadsummary()
 
@@ -80,11 +77,17 @@ class DashboardFragment : Fragment(), TransaksiDashboardListener {
     }
 
     private fun loadsummary(){
+        appkey = "x5fgFV9nK9UohrCeSDHO4LuHVLySNM4Y"
+        appid = "1"
+        token = "Bearer " + myPreftoken.getusertoken()
         Client.myApiClient()
-            .summary(appkey, appid, token, id_user)
+            .summary(appkey, appid, token)
             .enqueue(object : Callback<DashboardSummary>{
                 override fun onResponse(call: Call<DashboardSummary>, response: Response<DashboardSummary>) {
+
                     if (response.isSuccessful){
+                        Toast.makeText(context, "success", Toast.LENGTH_SHORT).show()
+
                         val total_transaksi1 = response.body()!!.totaltransaksi
                         val total_omset1 = response.body()!!.totalomset
                         val total_buyer1 = response.body()!!.totalbuyer
@@ -105,8 +108,11 @@ class DashboardFragment : Fragment(), TransaksiDashboardListener {
     }
 
     private fun loadTransaksi() {
+        appkey = "x5fgFV9nK9UohrCeSDHO4LuHVLySNM4Y"
+        appid = "1"
+        token = "Bearer " + myPreftoken.getusertoken()
         Client.myApiClient()
-            .listtransaction(appkey, appid, token, id_user)
+            .listtransaction(appkey, appid, token)
             .enqueue(object : Callback<DashboardListTransaction> {
                 override fun onFailure(call: Call<DashboardListTransaction>, t: Throwable) {
                     Toast.makeText(context, t.message, Toast.LENGTH_SHORT).show()

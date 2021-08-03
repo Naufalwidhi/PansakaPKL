@@ -34,56 +34,45 @@ interface Api {
     // -----------------------------------------------
     // Dashboard
     // -----------------------------------------------
-    @FormUrlEncoded
-    @POST("getsummary")
+    @GET("getsummary")
     fun summary(
         @Header("key") appKey: String,
         @Header("Authorization") token: String,
-        @Header("appId") appId: String,
-        @Field("id_user") id_user: String
+        @Header("appId") appId: String
     ): Call<DashboardSummary>
 
-    @FormUrlEncoded
     @GET("getlisttransaction")
     fun listtransaction(
         @Header("key") appKey: String,
         @Header("Authorization") token: String,
-        @Header("appId") appId: String,
-        @Field("id_user") id_user: String
+        @Header("appId") appId: String
     ): Call<DashboardListTransaction>
 
-    @FormUrlEncoded
     @GET("getcustomerbuyer")
     fun customerbuyer(
         @Header("key") appKey: String,
         @Header("Authorization") token: String,
-        @Header("appId") appId: String,
-        @Field("id_user") id_user: String
+        @Header("appId") appId: String
     ): Call<CustomerBuyer>
 
-    @FormUrlEncoded
     @GET("getcustomerseller")
     fun customerseller(
         @Header("key") appKey: String,
         @Header("Authorization") token: String,
-        @Header("appId") appId: String,
-        @Field("id_user") id_user: String
+        @Header("appId") appId: String
     ): Call<CustomerSeller>
 
-    @FormUrlEncoded
     @GET("getprofile")
     fun profile(
         @Header("key") appKey: String,
         @Header("Authorization") token: String,
-        @Header("appId") appId: String,
-        @Field("id_user") id_user: String
+        @Header("appId") appId: String
     ): Call<Profile>
-    @FormUrlEncoded
+
     @GET("getListTransactionDetail")
     fun listTransactionDetail(
         @Header("key") appKey: String,
         @Header("Authorization") token: String,
-        @Header("appId") appId: String,
-        @Field("id_user") id_user: String
+        @Header("appId") appId: String
     ): Call<Transaction>
 }

@@ -46,12 +46,12 @@ class CustomerBuyerFragment : Fragment(), CustBuyerListener {
 
     private fun loadcustbuyer() {
         swipe.isRefreshing = true
-        val token = myPreftoken.getusertoken()
+        val token = "Bearer " + myPreftoken.getusertoken()
         val iduser = myPrefid.getuserid()
         val appkey = "x5fgFV9nK9UohrCeSDHO4LuHVLySNM4Y"
         val appid = "1"
 
-        Client.myApiClient().customerbuyer(appid, appkey, iduser, token)
+        Client.myApiClient().customerbuyer(appid, appkey, token)
             .enqueue(object : Callback<CustomerBuyer>{
                 override fun onResponse(call: retrofit2.Call<CustomerBuyer>, response: Response<CustomerBuyer>) {
                     if (response.isSuccessful){

@@ -42,12 +42,12 @@ class CustomerSellerFragment : Fragment(), CustSellerListener {
 
     private fun loadcustseller() {
         swipe.isRefreshing = true
-        val token = myPreftoken.getusertoken()
+        val token = "Bearer " + myPreftoken.getusertoken()
         val iduser = myPrefid.getuserid()
         val appkey = "x5fgFV9nK9UohrCeSDHO4LuHVLySNM4Y"
         val appid = "1"
 
-        Client.myApiClient().customerseller(appid, appkey, iduser, token)
+        Client.myApiClient().customerseller(appid, appkey, token)
             .enqueue(object : Callback<CustomerSeller> {
                 override fun onResponse(
                     call: retrofit2.Call<CustomerSeller>,

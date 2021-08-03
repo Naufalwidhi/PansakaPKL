@@ -53,7 +53,7 @@ class TransaksiFragment : Fragment(), TransaksiListener {
 
         appKey = "x5fgFV9nK9UohrCeSDHO4LuHVLySNM4Y"
         appId = "1"
-        token = myPrefToken.getusertoken()
+        token = "Bearer " + myPrefToken.getusertoken()
         id_user = myPrefIdUser.getuserid()
 
         loadTransaksi()
@@ -62,7 +62,7 @@ class TransaksiFragment : Fragment(), TransaksiListener {
 
     private fun loadTransaksi() {
         Client.myApiClient()
-            .listTransactionDetail(appKey, appId, token, id_user)
+            .listTransactionDetail(appKey, appId, token)
             .enqueue(object : retrofit2.Callback<Transaction> {
                 override fun onResponse(call: Call<Transaction>, response: Response<Transaction>) {
                     if (response.isSuccessful) {
