@@ -12,7 +12,6 @@ import com.technobit.pansaka.adapter.CustSellerListener
 import com.technobit.pansaka.adapter.CustomerSellerAdapter
 import com.technobit.pansaka.api.Client
 import com.technobit.pansaka.model.CustomerSeller
-import com.technobit.pansaka.model.PrefsId
 import com.technobit.pansaka.model.PrefsToken
 import kotlinx.android.synthetic.main.fragment_customer_buyer.*
 import kotlinx.android.synthetic.main.fragment_dashboard.*
@@ -21,7 +20,6 @@ import retrofit2.Response
 
 class CustomerSellerFragment : Fragment(), CustSellerListener {
 
-    private val myPrefid by lazy { PrefsId(this.requireContext()) }
     private val myPreftoken by lazy { PrefsToken(this.requireContext()) }
     private lateinit var customerSellerAdapter: CustomerSellerAdapter
 
@@ -43,7 +41,6 @@ class CustomerSellerFragment : Fragment(), CustSellerListener {
     private fun loadcustseller() {
         swipe.isRefreshing = true
         val token = "Bearer " + myPreftoken.getusertoken()
-        val iduser = myPrefid.getuserid()
         val appkey = "x5fgFV9nK9UohrCeSDHO4LuHVLySNM4Y"
         val appid = "1"
 

@@ -1,9 +1,7 @@
 package com.technobit.pansaka.fragment
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -14,10 +12,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.technobit.pansaka.R
 import com.technobit.pansaka.activity.DetailTransaksiActivity
-import com.technobit.pansaka.adapter.Adapter
 import com.technobit.pansaka.adapter.TransaksiDashboardAdapter
 import com.technobit.pansaka.adapter.TransaksiDashboardListener
 import com.technobit.pansaka.api.Client
+import com.technobit.pansaka.api.constant
 import com.technobit.pansaka.model.*
 import kotlinx.android.synthetic.main.fragment_dashboard.*
 import retrofit2.Call
@@ -25,8 +23,6 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class DashboardFragment : Fragment(), TransaksiDashboardListener {
-
-    private val myPrefid by lazy { PrefsId(this.requireContext()) }
     private val myPreftoken by lazy { PrefsToken(this.requireContext()) }
     private lateinit var transaksiDashboardAdapter: TransaksiDashboardAdapter
     private lateinit var rvhome: RecyclerView
@@ -37,7 +33,6 @@ class DashboardFragment : Fragment(), TransaksiDashboardListener {
     private lateinit var appkey: String
     private lateinit var appid: String
     private lateinit var token: String
-    private lateinit var id_user: String
 
     override fun onClick(position: Int, transaksiDashboard: DashboardListTransaction) {
 
@@ -76,31 +71,25 @@ class DashboardFragment : Fragment(), TransaksiDashboardListener {
         setView()
     }
 
-    private fun loadsummary(){
-        appkey = "x5fgFV9nK9UohrCeSDHO4LuHVLySNM4Y"
-        appid = "1"
+    private fun loadsummary() {
         token = "Bearer " + myPreftoken.getusertoken()
+
         Client.myApiClient()
-            .summary(appkey, appid, token)
-            .enqueue(object : Callback<DashboardSummary>{
-                override fun onResponse(call: Call<DashboardSummary>, response: Response<DashboardSummary>) {
+            .summary(constant.appId, constant.key, token)
+            .enqueue(object : Callback<DashboardSummaryResponse> {
+                override fun onResponse(
+                    call: Call<DashboardSummaryResponse>,
+                    response: Response<DashboardSummaryResponse>
+                ) {
 
-                    if (response.isSuccessful){
-                        Toast.makeText(context, "success", Toast.LENGTH_SHORT).show()
-
-                        val total_transaksi1 = response.body()!!.totaltransaksi
-                        val total_omset1 = response.body()!!.totalomset
-                        val total_buyer1 = response.body()!!.totalbuyer
-                        val total_seller1 = response.body()!!.totalseller
-
-                        totaltransaksi.setText(total_transaksi1)
-                        totalomset.setText(total_omset1)
-                        totalbuyer.setText(total_buyer1)
-                        totalseller.setText(total_seller1)
+                    if (response.isSuccessful) {
+                        response.body()?.let {
+                            // Get data dari arraylist belum
+                        }
                     }
                 }
 
-                override fun onFailure(call: Call<DashboardSummary>, t: Throwable) {
+                override fun onFailure(call: Call<DashboardSummaryResponse>, t: Throwable) {
                     Toast.makeText(context, t.message, Toast.LENGTH_SHORT).show()
                 }
 
@@ -108,22 +97,21 @@ class DashboardFragment : Fragment(), TransaksiDashboardListener {
     }
 
     private fun loadTransaksi() {
-        appkey = "x5fgFV9nK9UohrCeSDHO4LuHVLySNM4Y"
-        appid = "1"
         token = "Bearer " + myPreftoken.getusertoken()
         Client.myApiClient()
-            .listtransaction(appkey, appid, token)
-            .enqueue(object : Callback<DashboardListTransaction> {
-                override fun onFailure(call: Call<DashboardListTransaction>, t: Throwable) {
+            .listtransaction(constant.appId, constant.key, token)
+            .enqueue(object : Callback<DashboardListTransactionResponse> {
+                override fun onFailure(call: Call<DashboardListTransactionResponse>, t: Throwable) {
                     Toast.makeText(context, t.message, Toast.LENGTH_SHORT).show()
                 }
+
                 override fun onResponse(
-                    call: Call<DashboardListTransaction>,
-                    response: Response<DashboardListTransaction>
+                    call: Call<DashboardListTransactionResponse>,
+                    response: Response<DashboardListTransactionResponse>
                 ) {
                     if (response.isSuccessful) {
                         response.body()?.let {
-                            transaksiDashboardAdapter.addData(DashboardListTransaction(it.id_checkout,it.name,it.product_image,it.shop,it.qty))
+                            transaksiDashboardAdapter.updateData(it.data)
                         }
                     }
                 }

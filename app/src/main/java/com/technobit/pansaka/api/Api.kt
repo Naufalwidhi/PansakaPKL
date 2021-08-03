@@ -9,16 +9,14 @@ interface Api {
     // -----------------------------------------------
     // Login
     // -----------------------------------------------
-    @Headers(
-        "key: x5fgFV9nK9UohrCeSDHO4LuHVLySNM4Y",
-        "appId: 1"
-    )
     @FormUrlEncoded
     @POST("login")
     fun login(
+        @Header("appId") appId: String,
+        @Header("key") key: String,
         @Field("username") username: String,
         @Field("password") password: String
-    ): Call<User>
+    ): Call<UserResponse>
 
     @Headers(
         "key: x5fgFV9nK9UohrCeSDHO4LuHVLySNM4Y",
@@ -36,43 +34,43 @@ interface Api {
     // -----------------------------------------------
     @GET("getsummary")
     fun summary(
+        @Header("appId") appId: String,
         @Header("key") appKey: String,
-        @Header("Authorization") token: String,
-        @Header("appId") appId: String
-    ): Call<DashboardSummary>
+        @Header("Authorization") token: String
+    ): Call<DashboardSummaryResponse>
 
     @GET("getlisttransaction")
     fun listtransaction(
+        @Header("appId") appId: String,
         @Header("key") appKey: String,
-        @Header("Authorization") token: String,
-        @Header("appId") appId: String
-    ): Call<DashboardListTransaction>
+        @Header("Authorization") token: String
+    ): Call<DashboardListTransactionResponse>
 
     @GET("getcustomerbuyer")
     fun customerbuyer(
+        @Header("appId") appId: String,
         @Header("key") appKey: String,
-        @Header("Authorization") token: String,
-        @Header("appId") appId: String
+        @Header("Authorization") token: String
     ): Call<CustomerBuyer>
 
     @GET("getcustomerseller")
     fun customerseller(
+        @Header("appId") appId: String,
         @Header("key") appKey: String,
-        @Header("Authorization") token: String,
-        @Header("appId") appId: String
+        @Header("Authorization") token: String
     ): Call<CustomerSeller>
 
     @GET("getprofile")
     fun profile(
+        @Header("appId") appId: String,
         @Header("key") appKey: String,
-        @Header("Authorization") token: String,
-        @Header("appId") appId: String
+        @Header("Authorization") token: String
     ): Call<Profile>
 
     @GET("getListTransactionDetail")
     fun listTransactionDetail(
+        @Header("appId") appId: String,
         @Header("key") appKey: String,
-        @Header("Authorization") token: String,
-        @Header("appId") appId: String
+        @Header("Authorization") token: String
     ): Call<Transaction>
 }

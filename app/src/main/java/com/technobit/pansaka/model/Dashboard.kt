@@ -5,15 +5,26 @@ import androidx.room.Entity
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
+data class DashboardSummaryResponse(
+    @SerializedName("message") val message: String,
+    @SerializedName("status") val status: String,
+    @SerializedName("data") val data: ArrayList<DashboardSummary>
+)
+
 @Parcelize
 @Entity
-class DashboardSummary (
+data class DashboardSummary (
     @SerializedName("total_transaksi") val totaltransaksi: String,
     @SerializedName("total_omset") val totalomset: String,
     @SerializedName("total_seller") val totalseller: String,
     @SerializedName("total_buyer") val totalbuyer: String
 ):Parcelable
 
+data class DashboardListTransactionResponse(
+    @SerializedName("message") val message: String,
+    @SerializedName("status") val status: String,
+    @SerializedName("data") val data: ArrayList<DashboardListTransaction>
+)
 @Parcelize
 @Entity
 class DashboardListTransaction(

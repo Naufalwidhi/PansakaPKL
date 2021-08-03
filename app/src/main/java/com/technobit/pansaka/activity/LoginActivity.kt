@@ -8,6 +8,7 @@ import android.widget.EditText
 import android.widget.Toast
 import com.technobit.pansaka.R
 import com.technobit.pansaka.api.Client
+import com.technobit.pansaka.api.constant
 import com.technobit.pansaka.model.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -17,37 +18,37 @@ class LoginActivity : AppCompatActivity() {
 
     private lateinit var login: Button
 
-    private val myPrefid by lazy { PrefsId(this) }
     private val myPreftoken by lazy { PrefsToken(this) }
 
-    override fun onStart() {
-        super.onStart()
-        val token = myPreftoken.getusertoken()
-        val idusers = myPrefid.getuserid()
-        if (token.isNotEmpty()) {
-            Client.myApiClient()
-                .validatetoken(idusers)
-                .enqueue(object : Callback<token> {
-                    override fun onResponse(call: Call<token>, response: Response<token>) {
-                        if (response.isSuccessful) {
-                            val intent = Intent(this@LoginActivity, MainActivity::class.java)
-                            startActivity(intent)
-                            finish()
-                        }
-                    }
-                    override fun onFailure(call: Call<token>, t: Throwable) {
-                        Toast.makeText(this@LoginActivity, t.message, Toast.LENGTH_SHORT).show()
-                    }
-
-                })
-        } else {
-            Toast.makeText(
-                this@LoginActivity,
-                "Maaf, Sesi anda telah habis. Silahkan login kembali",
-                Toast.LENGTH_SHORT
-            ).show()
-        }
-    }
+//    override fun onStart() {
+//        super.onStart()
+//        val token = "Bearer " + myPreftoken.getusertoken()
+//        val appkey = "x5fgFV9nK9UohrCeSDHO4LuHVLySNM4Y"
+//        val appid = "1"
+//        if (token.isNotEmpty()) {
+//            Client.myApiClient()
+//                .validatetoken(appkey, token, appid)
+//                .enqueue(object : Callback<token> {
+//                    override fun onResponse(call: Call<token>, response: Response<token>) {
+//                        if (response.isSuccessful) {
+//                            val intent = Intent(this@LoginActivity, MainActivity::class.java)
+//                            startActivity(intent)
+//                            finish()
+//                        }
+//                    }
+//                    override fun onFailure(call: Call<token>, t: Throwable) {
+//                        Toast.makeText(this@LoginActivity, t.message, Toast.LENGTH_SHORT).show()
+//                    }
+//
+//                })
+//        } else {
+//            Toast.makeText(
+//                this@LoginActivity,
+//                "Maaf, Sesi anda telah habis. Silahkan login kembali",
+//                Toast.LENGTH_SHORT
+//            ).show()
+//        }
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -75,20 +76,22 @@ class LoginActivity : AppCompatActivity() {
     private fun signin(username: String, password: String) {
 
         Client.myApiClient()
-            .login(username, password)
-            .enqueue(object : Callback<User> {
-                override fun onFailure(call: Call<User>, t: Throwable) {
+            .login(constant.appId, constant.key, username, password)
+            .enqueue(object : Callback<UserResponse> {
+                override fun onFailure(call: Call<UserResponse>, t: Throwable) {
                     Toast.makeText(this@LoginActivity, t.message, Toast.LENGTH_SHORT).show()
                 }
-                override fun onResponse(call: Call<User>, response: Response<User>) {
+
+                override fun onResponse(
+                    call: Call<UserResponse>,
+                    response: Response<UserResponse>
+                ) {
 
                     if (response.isSuccessful) {
-
-                        val id = response.body()?.id_users
-                        val token = response.body()?.token
-
-                        myPrefid.saveuserid(id.toString())
-                        myPreftoken.saveusertoken(token.toString())
+                        response.body()?.let {
+                            val token = it.data.token
+                            myPreftoken.saveusertoken(token)
+                        }
 
                         val intent = Intent(this@LoginActivity, MainActivity::class.java)
                         startActivity(intent)

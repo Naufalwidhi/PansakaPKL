@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object Client {
     val  retrofit = Retrofit.Builder()
-        .baseUrl("http://api.pansaka.shop/api/v1/")
+        .baseUrl(constant.BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 

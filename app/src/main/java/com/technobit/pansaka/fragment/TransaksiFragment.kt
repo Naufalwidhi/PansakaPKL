@@ -14,29 +14,19 @@ import com.technobit.pansaka.activity.DetailTransaksiActivity
 import com.technobit.pansaka.adapter.TransaksiAdapter
 import com.technobit.pansaka.adapter.TransaksiListener
 import com.technobit.pansaka.api.Client
-import com.technobit.pansaka.model.PrefsId
 import com.technobit.pansaka.model.PrefsToken
 import com.technobit.pansaka.model.Transaction
-import kotlinx.android.synthetic.main.fragment_dashboard.*
 import kotlinx.android.synthetic.main.fragment_transaksi.*
 import retrofit2.Call
 import retrofit2.Response
-import javax.security.auth.callback.Callback
 
 class TransaksiFragment : Fragment(), TransaksiListener {
-
-    private val myPrefIdUser by lazy { PrefsId(this.requireContext()) }
     private val myPrefToken by lazy { PrefsToken(this.requireContext()) }
     private lateinit var transaksiAdapter: TransaksiAdapter
     private lateinit var rvTransaksi: RecyclerView
     private lateinit var appKey: String
     private lateinit var appId: String
     private lateinit var token: String
-    private lateinit var id_user: String
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -54,7 +44,6 @@ class TransaksiFragment : Fragment(), TransaksiListener {
         appKey = "x5fgFV9nK9UohrCeSDHO4LuHVLySNM4Y"
         appId = "1"
         token = "Bearer " + myPrefToken.getusertoken()
-        id_user = myPrefIdUser.getuserid()
 
         loadTransaksi()
         setView()
