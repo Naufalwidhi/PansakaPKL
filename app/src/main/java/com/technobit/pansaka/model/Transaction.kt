@@ -5,6 +5,12 @@ import androidx.room.Entity
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
+data class TransactionResponse(
+    @SerializedName("message") val message: String,
+    @SerializedName("Status") val status: String,
+    @SerializedName("data") val data: ArrayList<Transaction>
+)
+
 @Parcelize
 @Entity
 class Transaction(

@@ -67,10 +67,10 @@ interface Api {
         @Header("Authorization") token: String
     ): Call<Profile>
 
-    @GET("getListTransactionDetail")
+    @GET("getlisttransactiondetail")
     fun listTransactionDetail(
         @Header("appId") appId: String,
         @Header("key") appKey: String,
         @Header("Authorization") token: String
-    ): Call<Transaction>
+    ): Call<TransactionResponse>
 }

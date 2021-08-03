@@ -25,6 +25,7 @@ data class DashboardListTransactionResponse(
     @SerializedName("status") val status: String,
     @SerializedName("data") val data: ArrayList<DashboardListTransaction>
 )
+
 @Parcelize
 @Entity
 class DashboardListTransaction(
