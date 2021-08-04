@@ -16,6 +16,7 @@ import com.technobit.pansaka.fragment.DashboardFragment
 import com.technobit.pansaka.R
 import com.technobit.pansaka.fragment.ProfileFragment
 import com.technobit.pansaka.fragment.TransaksiFragment
+import kotlinx.android.synthetic.main.activity_detail_transaksi.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -76,6 +77,5 @@ class MainActivity : AppCompatActivity() {
             }
             false
         }
-
 
 }

@@ -39,6 +39,7 @@
                     android:textColor="@color/black"
                     android:textSize="16sp" />
 
+
                 <TextView
                     android:id="@+id/nama_toko_dashboard"
                     android:layout_width="wrap_content"
@@ -60,6 +61,14 @@
                 android:orientation="vertical"
                 android:gravity="end">
 
+                <TextView
+                    android:id="@+id/txt_detail_transaksi_dashboard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/opensans_semibold"
+                    android:text="Detail Transaksi"
+                    android:textColor="#0F8AF9"
+                    android:textSize="13sp" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"

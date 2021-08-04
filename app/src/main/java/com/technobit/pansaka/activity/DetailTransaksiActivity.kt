@@ -4,10 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.bumptech.glide.Glide
 import com.technobit.pansaka.R
-import com.technobit.pansaka.model.PrefsToken
 import com.technobit.pansaka.model.Transaction
 import kotlinx.android.synthetic.main.activity_detail_transaksi.*
-import kotlinx.android.synthetic.main.list_item_dashboard.*
 
 class DetailTransaksiActivity : AppCompatActivity() {
 
@@ -37,7 +35,7 @@ class DetailTransaksiActivity : AppCompatActivity() {
     }
 
     private fun setUpToolbar(title: String){
-        setSupportActionBar(toolbar) // set toolbar
+        setSupportActionBar(toolbar_transaksi) // set toolbar
         supportActionBar?.title = title //set title
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)

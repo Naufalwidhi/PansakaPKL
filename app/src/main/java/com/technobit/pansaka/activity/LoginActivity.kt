@@ -22,16 +22,22 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        val token = "Bearer " + myPreftoken.getusertoken()
+        val token = myPreftoken.getusertoken()
         if (token.isNotEmpty()) {
+            val token1 = "Bearer " + token
             Client.myApiClient()
-                .validatetoken(constant.appId, constant.key, token)
+                .validatetoken(constant.appId, constant.key, token1)
                 .enqueue(object : Callback<token> {
                     override fun onResponse(call: Call<token>, response: Response<token>) {
                         if (response.isSuccessful) {
-                            val intent = Intent(this@LoginActivity, MainActivity::class.java)
-                            startActivity(intent)
-                            finish()
+                            response.body()?.let {
+                                val message = it.message
+                                if(message == "Token Valid"){
+                                    val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                                    startActivity(intent)
+                                    finish()
+                                }
+                            }
                         }
                     }
                     override fun onFailure(call: Call<token>, t: Throwable) {

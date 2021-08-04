@@ -5,10 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentPagerAdapter
 import com.technobit.pansaka.R
 import com.technobit.pansaka.adapter.PagerAdapter
 import kotlinx.android.synthetic.main.fragment_customer.*
+import kotlinx.android.synthetic.main.fragment_transaksi.*
 
 class CustomerFragment : Fragment() {
 
@@ -32,6 +34,9 @@ class CustomerFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        (activity as AppCompatActivity).setSupportActionBar(toolbar_customer)
+        (activity as AppCompatActivity).supportActionBar?.title = "Customer"
+
         pagerAdapter?.addFragment(CustomerBuyerFragment(), "Buyer")
         pagerAdapter?.addFragment(CustomerSellerFragment(), "Seller")
 
@@ -40,5 +45,7 @@ class CustomerFragment : Fragment() {
         }
 
         tab_customer?.setupWithViewPager(view_pager)
+
+
     }
 }

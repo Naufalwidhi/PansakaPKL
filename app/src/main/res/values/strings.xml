@@ -20,7 +20,7 @@
     <string name="dashboard_fragment">Dashboard Fragment</string>
     <string name="customer_fragment">Customer Fragment</string>
     <string name="transaksi_fragment">Transaksi Fragment</string>
-    <string name="transaksi">Transaksi</string>
+    <string name="transaksi">Transaction</string>
     <string name="customer">Customer</string>
     <string name="dashboard">Dashboard</string>
     <string name="logout">Logout</string>

@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.technobit.pansaka.R
@@ -18,8 +19,8 @@ import com.technobit.pansaka.api.constant
 import com.technobit.pansaka.model.PrefsToken
 import com.technobit.pansaka.model.Transaction
 import com.technobit.pansaka.model.TransactionResponse
-import kotlinx.android.synthetic.main.fragment_customer_buyer.*
 import kotlinx.android.synthetic.main.fragment_transaksi.*
+import kotlinx.android.synthetic.main.fragment_transaksi.toolbar_transaksi
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -59,6 +60,10 @@ class TransaksiFragment : Fragment(), TransaksiListener {
 
         loadTransaksi()
         setView()
+
+        (activity as AppCompatActivity).setSupportActionBar(toolbar_transaksi)
+        (activity as AppCompatActivity).supportActionBar?.title = "Transaction"
+
     }
 
     private fun loadTransaksi() {

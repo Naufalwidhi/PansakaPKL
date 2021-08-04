@@ -1,47 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.TransaksiFragment"
-    android:padding="15dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.TransaksiFragment">
 
-    <TextView
-        android:id="@+id/tv_transaksi"
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/opensans_semibold"
-        android:paddingStart="10dp"
-        android:paddingEnd="10dp"
-        android:text="@string/transaksi"
-        android:textColor="@color/black"
-        android:textSize="34sp" />
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-    <TextView
-        android:id="@+id/tv_inputan_customer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_transaksi"
-        android:fontFamily="@font/opensans_regular"
-        android:paddingStart="13dp"
-        android:paddingEnd="10dp"
-        android:text="@string/list_transaksi_aplikasi_pansaka"
-        android:textColor="@color/black"
-        android:textSize="16sp" />
-
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/swipe_transaksi"
-        android:layout_below="@+id/tv_inputan_customer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingStart="13dp"
-        android:paddingEnd="10dp">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_transaksi"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_transaksi"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="?attr/actionBarSize" />
 
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
-</RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        <TextView
+            android:id="@+id/tv_inputan_customer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/opensans_regular"
+            android:paddingStart="14dp"
+            android:text="@string/list_transaksi_aplikasi_pansaka"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:layout_marginTop="10dp"/>
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_transaksi"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tv_inputan_customer">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_transaksi"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+    </RelativeLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

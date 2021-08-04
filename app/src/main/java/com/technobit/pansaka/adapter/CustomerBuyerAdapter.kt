@@ -49,7 +49,7 @@ class CustBuyerVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         itemView.nama_produk_customer_buyer?.text = data.custname
         itemView.email_customer_buyer?.text = data.custemail
-        itemView.no_telp_customer_buyer?.text = data.custaddress
+        itemView.alamat_buyer?.text = data.custaddress
         itemView.img_produk_customer_buyer?.apply {
             //load gambar
             Glide.with(context)

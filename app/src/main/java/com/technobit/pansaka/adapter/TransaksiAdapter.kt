@@ -9,7 +9,7 @@ import com.bumptech.glide.Glide
 import com.technobit.pansaka.R
 import com.technobit.pansaka.model.Transaction
 //import com.technobit.pansaka.model.DashboardListTransaction
-import kotlinx.android.synthetic.main.list_item_dashboard.view.*
+import kotlinx.android.synthetic.main.list_item_transaksi.view.*
 
 class TransaksiAdapter(val listener: TransaksiListener) : RecyclerView.Adapter<TransaksiVH>() {
 
@@ -29,7 +29,7 @@ class TransaksiAdapter(val listener: TransaksiListener) : RecyclerView.Adapter<T
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TransaksiVH {
         val view = LayoutInflater
             .from(parent.context)
-            .inflate(R.layout.list_item_dashboard, parent, false)
+            .inflate(R.layout.list_item_transaksi, parent, false)
 
         return TransaksiVH(view)
     }
