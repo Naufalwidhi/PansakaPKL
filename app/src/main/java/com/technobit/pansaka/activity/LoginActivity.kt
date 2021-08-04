@@ -20,35 +20,27 @@ class LoginActivity : AppCompatActivity() {
 
     private val myPreftoken by lazy { PrefsToken(this) }
 
-//    override fun onStart() {
-//        super.onStart()
-//        val token = "Bearer " + myPreftoken.getusertoken()
-//        val appkey = "x5fgFV9nK9UohrCeSDHO4LuHVLySNM4Y"
-//        val appid = "1"
-//        if (token.isNotEmpty()) {
-//            Client.myApiClient()
-//                .validatetoken(appkey, token, appid)
-//                .enqueue(object : Callback<token> {
-//                    override fun onResponse(call: Call<token>, response: Response<token>) {
-//                        if (response.isSuccessful) {
-//                            val intent = Intent(this@LoginActivity, MainActivity::class.java)
-//                            startActivity(intent)
-//                            finish()
-//                        }
-//                    }
-//                    override fun onFailure(call: Call<token>, t: Throwable) {
-//                        Toast.makeText(this@LoginActivity, t.message, Toast.LENGTH_SHORT).show()
-//                    }
-//
-//                })
-//        } else {
-//            Toast.makeText(
-//                this@LoginActivity,
-//                "Maaf, Sesi anda telah habis. Silahkan login kembali",
-//                Toast.LENGTH_SHORT
-//            ).show()
-//        }
-//    }
+    override fun onStart() {
+        super.onStart()
+        val token = "Bearer " + myPreftoken.getusertoken()
+        if (token.isNotEmpty()) {
+            Client.myApiClient()
+                .validatetoken(constant.appId, constant.key, token)
+                .enqueue(object : Callback<token> {
+                    override fun onResponse(call: Call<token>, response: Response<token>) {
+                        if (response.isSuccessful) {
+                            val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                            startActivity(intent)
+                            finish()
+                        }
+                    }
+                    override fun onFailure(call: Call<token>, t: Throwable) {
+                        Toast.makeText(this@LoginActivity, "Something Wrong", Toast.LENGTH_SHORT)
+                            .show()
+                    }
+                })
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -74,7 +66,6 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun signin(username: String, password: String) {
-
         Client.myApiClient()
             .login(constant.appId, constant.key, username, password)
             .enqueue(object : Callback<UserResponse> {
@@ -86,13 +77,11 @@ class LoginActivity : AppCompatActivity() {
                     call: Call<UserResponse>,
                     response: Response<UserResponse>
                 ) {
-
                     if (response.isSuccessful) {
                         response.body()?.let {
                             val token = it.data.token
                             myPreftoken.saveusertoken(token)
                         }
-
                         val intent = Intent(this@LoginActivity, MainActivity::class.java)
                         startActivity(intent)
                     } else {

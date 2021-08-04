@@ -34,5 +34,7 @@ data class Profile (
 @Parcelize
 @Entity
 data class token (
-    @SerializedName("token") val token: String
+    @SerializedName("message") val message: String,
+    @SerializedName("status") val status: String
+
 ):Parcelable

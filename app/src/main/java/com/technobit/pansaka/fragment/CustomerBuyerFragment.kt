@@ -13,9 +13,11 @@ import com.technobit.pansaka.adapter.CustomerBuyerAdapter
 import com.technobit.pansaka.api.Client
 import com.technobit.pansaka.api.constant
 import com.technobit.pansaka.model.CustomerBuyer
+import com.technobit.pansaka.model.CustomerBuyerResponse
 import com.technobit.pansaka.model.PrefsToken
 import kotlinx.android.synthetic.main.fragment_customer_buyer.*
 import kotlinx.android.synthetic.main.fragment_dashboard.*
+import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
@@ -36,8 +38,8 @@ class CustomerBuyerFragment : Fragment(), CustBuyerListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        loadcustbuyer()
         setView()
+        loadcustbuyer()
     }
 
     private fun loadcustbuyer() {
@@ -45,23 +47,29 @@ class CustomerBuyerFragment : Fragment(), CustBuyerListener {
         val token = "Bearer " + myPreftoken.getusertoken()
 
         Client.myApiClient().customerbuyer(constant.appId, constant.key, token)
-            .enqueue(object : Callback<CustomerBuyer>{
-                override fun onResponse(call: retrofit2.Call<CustomerBuyer>, response: Response<CustomerBuyer>) {
-                    if (response.isSuccessful){
+            .enqueue(object : Callback<CustomerBuyerResponse> {
+                override fun onResponse(
+                    call: Call<CustomerBuyerResponse>,
+                    response: Response<CustomerBuyerResponse>
+                ) {
+                    if (response.isSuccessful) {
                         response.body()?.let {
-                            customerBuyerAdapter.addData(CustomerBuyer(it.custname, it.custaddress, it.custemail, it.custstatus, it.custprofile))
+                            customerBuyerAdapter.updateData(it.data)
                         }
+                        swipe.isRefreshing = false
                     }
                 }
-                override fun onFailure(call: retrofit2.Call<CustomerBuyer>, t: Throwable) {
+
+                override fun onFailure(call: Call<CustomerBuyerResponse>, t: Throwable) {
                     Toast.makeText(context, t.message, Toast.LENGTH_SHORT).show()
                 }
             })
     }
+
     private fun setView() {
         loadcustbuyer()
         customerBuyerAdapter = CustomerBuyerAdapter(this)
-        rv_transaksi_dashboard?.apply {
+        rv_customer?.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = customerBuyerAdapter
         }

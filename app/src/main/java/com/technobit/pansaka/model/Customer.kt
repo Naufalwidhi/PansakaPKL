@@ -5,9 +5,20 @@ import androidx.room.Entity
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
+data class CustomerBuyerResponse(
+    @SerializedName("status") val status: String,
+    @SerializedName("message") val message: String,
+    @SerializedName("data") val data: ArrayList<CustomerBuyer>
+)
+data class CustomerSellerResponse(
+    @SerializedName("status") val status: String,
+    @SerializedName("message") val message: String,
+    @SerializedName("data") val data: ArrayList<CustomerSeller>
+)
+
 @Parcelize
 @Entity
-class CustomerBuyer(
+data class CustomerBuyer(
     @SerializedName("name") val custname: String,
     @SerializedName("address") val custaddress: String,
     @SerializedName("email") val custemail: String,
@@ -17,7 +28,7 @@ class CustomerBuyer(
 
 @Parcelize
 @Entity
-class CustomerSeller(
+data class CustomerSeller(
     @SerializedName("name") val sellername: String,
     @SerializedName("address") val selleraddress: String,
     @SerializedName("email") val selleremail: String,

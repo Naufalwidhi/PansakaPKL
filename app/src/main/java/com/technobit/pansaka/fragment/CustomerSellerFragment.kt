@@ -11,10 +11,13 @@ import com.technobit.pansaka.R
 import com.technobit.pansaka.adapter.CustSellerListener
 import com.technobit.pansaka.adapter.CustomerSellerAdapter
 import com.technobit.pansaka.api.Client
+import com.technobit.pansaka.api.constant
 import com.technobit.pansaka.model.CustomerSeller
+import com.technobit.pansaka.model.CustomerSellerResponse
 import com.technobit.pansaka.model.PrefsToken
 import kotlinx.android.synthetic.main.fragment_customer_buyer.*
 import kotlinx.android.synthetic.main.fragment_dashboard.*
+import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
@@ -41,31 +44,22 @@ class CustomerSellerFragment : Fragment(), CustSellerListener {
     private fun loadcustseller() {
         swipe.isRefreshing = true
         val token = "Bearer " + myPreftoken.getusertoken()
-        val appkey = "x5fgFV9nK9UohrCeSDHO4LuHVLySNM4Y"
-        val appid = "1"
 
-        Client.myApiClient().customerseller(appid, appkey, token)
-            .enqueue(object : Callback<CustomerSeller> {
+        Client.myApiClient().customerseller(constant.appId, constant.key, token)
+            .enqueue(object : Callback<CustomerSellerResponse> {
                 override fun onResponse(
-                    call: retrofit2.Call<CustomerSeller>,
-                    response: Response<CustomerSeller>
+                    call: Call<CustomerSellerResponse>,
+                    response: Response<CustomerSellerResponse>
                 ) {
                     if (response.isSuccessful) {
                         response.body()?.let {
-                            customerSellerAdapter.addData(
-                                CustomerSeller(
-                                    it.sellername,
-                                    it.selleraddress,
-                                    it.selleremail,
-                                    it.sellerstatus,
-                                    it.sellerprofile
-                                )
-                            )
+                            customerSellerAdapter.updateData(it.data)
                         }
+                        swipe.isRefreshing = false
+
                     }
                 }
-
-                override fun onFailure(call: retrofit2.Call<CustomerSeller>, t: Throwable) {
+                override fun onFailure(call: Call<CustomerSellerResponse>, t: Throwable) {
                     Toast.makeText(context, t.message, Toast.LENGTH_SHORT).show()
                 }
             })
@@ -74,7 +68,7 @@ class CustomerSellerFragment : Fragment(), CustSellerListener {
     private fun setView() {
         loadcustseller()
         customerSellerAdapter = CustomerSellerAdapter(this)
-        rv_transaksi_dashboard?.apply {
+        rv_customer?.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = customerSellerAdapter
         }

@@ -30,19 +30,10 @@ class DashboardFragment : Fragment(), TransaksiDashboardListener {
     private lateinit var totalomset: TextView
     private lateinit var totalbuyer: TextView
     private lateinit var totalseller: TextView
-    private lateinit var appkey: String
-    private lateinit var appid: String
     private lateinit var token: String
 
     override fun onClick(position: Int, transaksiDashboard: DashboardListTransaction) {
 
-        val intent = Intent(context, DetailTransaksiActivity::class.java)
-
-        intent.putExtra("transaksi", transaksiDashboard)
-
-        startActivity(
-            intent
-        )
     }
 
 
@@ -73,7 +64,6 @@ class DashboardFragment : Fragment(), TransaksiDashboardListener {
 
     private fun loadsummary() {
         token = "Bearer " + myPreftoken.getusertoken()
-
         Client.myApiClient()
             .summary(constant.appId, constant.key, token)
             .enqueue(object : Callback<DashboardSummaryResponse> {
@@ -84,7 +74,14 @@ class DashboardFragment : Fragment(), TransaksiDashboardListener {
 
                     if (response.isSuccessful) {
                         response.body()?.let {
-                            // Get data dari arraylist belum
+                            val totaltransaksi1 = it.data[0].totaltransaksi
+                            val totalomset2 = it.data[0].totalomset
+                            val totalbuyer3 = it.data[0].totalbuyer
+                            val totalseller4 = it.data[0].totalseller
+                            tv_total_transaksi_dashboard.text = totaltransaksi1
+                            tv_total_omset_dashboard.text = totalomset2
+                            tv_total_buyer_dashboard.text = totalbuyer3
+                            tv_total_seller_dashboard.text = totalseller4
                         }
                     }
                 }

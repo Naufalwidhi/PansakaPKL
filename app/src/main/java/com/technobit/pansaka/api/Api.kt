@@ -18,14 +18,11 @@ interface Api {
         @Field("password") password: String
     ): Call<UserResponse>
 
-    @Headers(
-        "key: x5fgFV9nK9UohrCeSDHO4LuHVLySNM4Y",
-        "appId: 1"
-    )
-    @FormUrlEncoded
     @POST("validatetoken")
     fun validatetoken(
-        @Field("id_users") id_users: String
+        @Header("appId") appId: String,
+        @Header("key") key: String,
+        @Header("Authorization") token: String
     ): Call<token>
 
 
@@ -51,14 +48,14 @@ interface Api {
         @Header("appId") appId: String,
         @Header("key") appKey: String,
         @Header("Authorization") token: String
-    ): Call<CustomerBuyer>
+    ): Call<CustomerBuyerResponse>
 
     @GET("getcustomerseller")
     fun customerseller(
         @Header("appId") appId: String,
         @Header("key") appKey: String,
         @Header("Authorization") token: String
-    ): Call<CustomerSeller>
+    ): Call<CustomerSellerResponse>
 
     @GET("getprofile")
     fun profile(
@@ -67,10 +64,10 @@ interface Api {
         @Header("Authorization") token: String
     ): Call<Profile>
 
-    @GET("getListTransactionDetail")
+    @GET("getlisttransactiondetail")
     fun listTransactionDetail(
         @Header("appId") appId: String,
         @Header("key") appKey: String,
         @Header("Authorization") token: String
-    ): Call<Transaction>
+    ): Call<TransactionResponse>
 }

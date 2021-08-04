@@ -51,20 +51,13 @@ class CustBuyerVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
         itemView.email_customer_buyer?.text = data.custemail
         itemView.no_telp_customer_buyer?.text = data.custaddress
         itemView.img_produk_customer_buyer?.apply {
-
             //load gambar
             Glide.with(context)
-                .load("https://image.tmdb.org/t/p/w500"+data.custprofile)
+                .load(data.custprofile)
                 .into(this)
-
-
         }
-
-
         itemView.rootView.setOnClickListener {
-
             listener.onClick(adapterPosition, data)
-
         }
     }
 
