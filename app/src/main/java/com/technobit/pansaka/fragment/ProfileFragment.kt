@@ -1,34 +1,30 @@
 package com.technobit.pansaka.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import android.widget.Toast
+import com.bumptech.glide.Glide
 import com.technobit.pansaka.R
+import com.technobit.pansaka.activity.ChangePasswordActivity
+import com.technobit.pansaka.api.Client
+import com.technobit.pansaka.api.constant
+import com.technobit.pansaka.model.PrefsToken
+import com.technobit.pansaka.model.ProfileResponse
+import kotlinx.android.synthetic.main.fragment_dashboard.*
+import kotlinx.android.synthetic.main.fragment_profile.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [ProfileFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ProfileFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private val myPreftoken by lazy { PrefsToken(this.requireContext()) }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,23 +34,41 @@ class ProfileFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_profile, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ProfileFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ProfileFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        loadprofile()
+        val changepassword = view.findViewById<LinearLayout>(R.id.ganti_password)
+        changepassword.setOnClickListener {
+            val intent = Intent(context, ChangePasswordActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+    private fun loadprofile() {
+        val token = "Bearer " + myPreftoken.getusertoken()
+        Client.myApiClient().profile(constant.appId, constant.key, token)
+            .enqueue(object : Callback<ProfileResponse> {
+                override fun onResponse(
+                    call: Call<ProfileResponse>,
+                    response: Response<ProfileResponse>
+                ) {
+                    if (response.isSuccessful){
+                        response.body()?.let {
+                            val nama = it.data[0].nameprofile
+                            tv_nama_profile.text = nama
+                            img_profile.apply {
+                                context?.let { it1 ->
+                                    Glide.with(it1)
+                                        .load(it.data[0].profilepic)
+                                        .into(this)
+                                }
+                            }
+                        }
+                    }
                 }
-            }
+                override fun onFailure(call: Call<ProfileResponse>, t: Throwable) {
+                    Toast.makeText(context, t.message, Toast.LENGTH_LONG).show()
+                }
+            })
     }
 }

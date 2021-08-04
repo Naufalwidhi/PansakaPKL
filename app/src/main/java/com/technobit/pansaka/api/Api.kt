@@ -62,7 +62,7 @@ interface Api {
         @Header("appId") appId: String,
         @Header("key") appKey: String,
         @Header("Authorization") token: String
-    ): Call<Profile>
+    ): Call<ProfileResponse>
 
     @GET("getlisttransactiondetail")
     fun listTransactionDetail(

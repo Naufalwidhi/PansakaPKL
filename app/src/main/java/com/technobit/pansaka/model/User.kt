@@ -22,6 +22,12 @@ data class User (
     @SerializedName("url_profile_picture") val profilepic: String
 ):Parcelable
 
+data class ProfileResponse(
+    @SerializedName("message") val message: String,
+    @SerializedName("status") val status: String,
+    @SerializedName("data") val data: ArrayList<Profile>
+)
+
 @Parcelize
 @Entity
 data class Profile (
