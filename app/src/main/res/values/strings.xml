@@ -69,5 +69,9 @@
     <string name="toko_produk">Converse Indonesia</string>
     <string name="nama_produk">Sepatu Converse Oldschool</string>
     <string name="quantity">12 PCS</string>
+    <string name="total_harga">Total Harga</string>
+    <string name="jumlah_barang">Jumlah Barang</string>
+    <string name="detail_pemesanan">Detail Pemesanan</string>
+    <string name="nomor_invoice">Nomor Invoice</string>
 
 </resources>
