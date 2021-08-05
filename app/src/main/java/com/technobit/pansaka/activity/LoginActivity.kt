@@ -30,14 +30,9 @@ class LoginActivity : AppCompatActivity() {
                 .enqueue(object : Callback<token> {
                     override fun onResponse(call: Call<token>, response: Response<token>) {
                         if (response.isSuccessful) {
-                            response.body()?.let {
-                                val message = it.message
-                                if(message == "Token Valid"){
                                     val intent = Intent(this@LoginActivity, MainActivity::class.java)
                                     startActivity(intent)
                                     finish()
-                                }
-                            }
                         }
                     }
                     override fun onFailure(call: Call<token>, t: Throwable) {
@@ -88,7 +83,7 @@ class LoginActivity : AppCompatActivity() {
                             val token = it.data.token
                             myPreftoken.saveusertoken(token)
                         }
-                        val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                            val intent = Intent(this@LoginActivity, MainActivity::class.java)
                         startActivity(intent)
                     } else {
                         Toast.makeText(

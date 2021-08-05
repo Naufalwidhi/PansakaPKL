@@ -28,7 +28,7 @@
     <!-- Dashboard -->
     <string name="BOPA">BACKOFFICE APP</string>
     <string name="admin">Selamat datang, Admin</string>
-    <string name="halo_admin">Halo Admin</string>
+    <string name="halo_admin">Welcome back, Admin</string>
     <string name="agustus">AGUSTUS</string>
     <string name="transaksi_terbaru">Transaksi terbaru</string>
     <string name="total_transaksi">Total Transaksi</string>

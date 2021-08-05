@@ -10,11 +10,11 @@
         android:id="@+id/tv_dashboard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/opensans_semibold"
+        android:fontFamily="@font/opensans_bold"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
         android:text="@string/dashboard"
-        android:textColor="@color/black"
+        android:textColor="#0E77D6"
         android:textSize="34sp" />
 
     <TextView
@@ -27,27 +27,14 @@
         android:paddingEnd="10dp"
         android:text="@string/halo_admin"
         android:textColor="@color/black"
-        android:textSize="16sp" />
-
-    <TextView
-        android:id="@+id/tv_bulan_dashboard"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_inputan_dashboard"
-        android:fontFamily="@font/opensans_semibold"
-        android:gravity="end"
-        android:paddingEnd="15dp"
-        android:text="@string/agustus"
-        android:textColor="#FF515151"
-        android:textSize="12sp"
-        tools:ignore="RtlSymmetry" />
-
+        android:textSize="16sp"
+        android:layout_marginBottom="5dp"/>
 
     <RelativeLayout
         android:id="@+id/container_dasboard_atas"
         android:layout_width="match_parent"
         android:layout_height="260dp"
-        android:layout_below="@+id/tv_bulan_dashboard"
+        android:layout_below="@+id/tv_inputan_dashboard"
         android:layout_centerHorizontal="true">
 
         <ImageView

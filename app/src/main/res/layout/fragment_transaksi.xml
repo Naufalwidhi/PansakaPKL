@@ -39,7 +39,8 @@
             android:id="@+id/swipe_transaksi"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/tv_inputan_customer">
+            android:layout_below="@+id/tv_inputan_customer"
+            android:layout_marginTop="-15dp">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_transaksi"
@@ -48,7 +49,17 @@
 
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-
     </RelativeLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_filter"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="16dp"
+        app:fabSize="normal"
+        android:backgroundTint="#0F8AF9"
+        android:elevation="6dp"
+        android:src="@drawable/icon_filter"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
