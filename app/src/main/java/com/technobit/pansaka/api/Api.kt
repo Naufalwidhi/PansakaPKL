@@ -70,4 +70,21 @@ interface Api {
         @Header("key") appKey: String,
         @Header("Authorization") token: String
     ): Call<TransactionResponse>
+
+    @FormUrlEncoded
+    @POST("changepassword")
+    fun changepassword(
+        @Header("appId") appId: String,
+        @Header("key") key: String,
+        @Header("Authorization") token: String,
+        @Field("password") password: String
+    ): Call<ChangeResponse>
+
+    @FormUrlEncoded
+    @POST("logout")
+    fun logout(
+        @Header("appId") appId: String,
+        @Header("key") key: String,
+        @Header("Authorization") token: String
+    ): Call<LogoutResponse>
 }

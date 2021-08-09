@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -13,8 +14,10 @@ import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.technobit.pansaka.R
 import com.technobit.pansaka.activity.ChangePasswordActivity
+import com.technobit.pansaka.activity.LoginActivity
 import com.technobit.pansaka.api.Client
 import com.technobit.pansaka.api.constant
+import com.technobit.pansaka.model.LogoutResponse
 import com.technobit.pansaka.model.PrefsToken
 import com.technobit.pansaka.model.Profile
 import com.technobit.pansaka.model.ProfileResponse
@@ -27,10 +30,11 @@ import retrofit2.Response
 class ProfileFragment : Fragment() {
 
     private val myPreftoken by lazy { PrefsToken(this.requireContext()) }
-    private lateinit var profile: Profile
     private lateinit var token: String
-    private lateinit var name : TextView
-    private lateinit var image : ImageView
+    private lateinit var name: TextView
+    private lateinit var image: ImageView
+    private lateinit var logout: Button
+    private lateinit var gantipassword: Button
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -48,14 +52,57 @@ class ProfileFragment : Fragment() {
 
         name = view.findViewById(R.id.profile_name)
         image = view.findViewById(R.id.img_profile)
+        logout = view.findViewById(R.id.btn_logout)
+        gantipassword = view.findViewById(R.id.btn_change_password)
 
         setChangePassButton()
         loadProfile()
+
+        logout.setOnClickListener {
+            logout()
+        }
+        btn_change_password.setOnClickListener {
+            val intent = Intent(context, ChangePasswordActivity::class.java)
+            startActivity(intent)
+        }
     }
 
-    private fun setChangePassButton(){
-        btn_change_password.setOnClickListener{
-            val intent = Intent(context,ChangePasswordActivity::class.java)
+    private fun logout() {
+        val token = myPreftoken.getusertoken()
+        Client.myApiClient().logout(constant.appId, constant.key, token)
+            .enqueue(object : Callback<LogoutResponse> {
+                override fun onFailure(call: Call<LogoutResponse>, t: Throwable) {
+                    Toast.makeText(context, t.message, Toast.LENGTH_SHORT).show()
+                }
+                override fun onResponse(
+                    call: Call<LogoutResponse>,
+                    response: Response<LogoutResponse>
+                ) {
+                    if (response.isSuccessful){
+                        response.body()?.let {
+                            val message = it.message
+                            if (message.equals("Berhasil logout")){
+                                myPreftoken.deletetoken()
+                                val intent = Intent(context, LoginActivity::class.java)
+                                startActivity(intent)
+                            }else{
+                                Toast.makeText(context, "User Session telah habis", Toast.LENGTH_SHORT).show()
+                                val intent = Intent(context, LoginActivity::class.java)
+                                startActivity(intent)
+                            }
+                        }
+                    }else{
+                        Toast.makeText(context, "Something Wrong", Toast.LENGTH_SHORT).show()
+                    }
+                }
+
+            })
+
+    }
+
+    private fun setChangePassButton() {
+        btn_change_password.setOnClickListener {
+            val intent = Intent(context, ChangePasswordActivity::class.java)
             startActivity(intent)
         }
     }
@@ -69,11 +116,9 @@ class ProfileFragment : Fragment() {
                     call: Call<ProfileResponse>,
                     response: Response<ProfileResponse>
                 ) {
-
                     if (response.isSuccessful) {
                         response.body()?.let {
                             val name_profile = it.data[0].nameprofile
-
                             profile_name?.text = name_profile
                             img_profile.apply {
                                 context?.let { it1 ->

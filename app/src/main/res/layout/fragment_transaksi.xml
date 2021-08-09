@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragment.TransaksiFragment">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -27,13 +27,13 @@
             android:id="@+id/tv_inputan_customer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="8dp"
             android:fontFamily="@font/opensans_regular"
             android:paddingStart="14dp"
             android:text="@string/list_transaksi_aplikasi_pansaka"
             android:textColor="@color/black"
-            android:textSize="16sp"
-            android:layout_marginTop="10dp"/>
+            android:textSize="16sp" />
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/swipe_transaksi"
@@ -52,14 +52,14 @@
     </RelativeLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btn_filter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btn_filter"
         android:layout_gravity="end|bottom"
         android:layout_margin="16dp"
-        app:fabSize="normal"
         android:backgroundTint="#0F8AF9"
         android:elevation="6dp"
-        android:src="@drawable/icon_filter"/>
+        android:src="@drawable/icon_filter"
+        app:fabSize="normal" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

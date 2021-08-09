@@ -29,8 +29,6 @@ class TransaksiFragment : Fragment(), TransaksiListener {
     private val myPrefToken by lazy { PrefsToken(this.requireContext()) }
     private lateinit var transaksiAdapter: TransaksiAdapter
     private lateinit var rvTransaksi: RecyclerView
-    private lateinit var appKey: String
-    private lateinit var appId: String
     private lateinit var token: String
 
     override fun onClick(position: Int, transaksi: Transaction) {

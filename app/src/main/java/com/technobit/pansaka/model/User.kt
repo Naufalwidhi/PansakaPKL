@@ -42,5 +42,18 @@ data class Profile (
 data class token (
     @SerializedName("message") val message: String,
     @SerializedName("status") val status: String
+):Parcelable
 
+@Parcelize
+@Entity
+data class ChangeResponse (
+    @SerializedName("message") val message: String,
+    @SerializedName("status") val status: String
+):Parcelable
+
+@Parcelize
+@Entity
+data class LogoutResponse (
+    @SerializedName("message") val message: String,
+    @SerializedName("status") val status: String
 ):Parcelable

@@ -58,7 +58,7 @@
     <string name="txt_ubah_password">Ubah password anda dengan password terbaru.</string>
     <string name="title_ganti_password">Ganti Password</string>
     <string name="masukkan_password_baru">Masukkan password baru</string>
-    <string name="masukkan_password_sekarang">Masukkan password sekarang</string>
+    <string name="masukkan_password_lama">Masukkan password lama</string>
 
     <string name="admin2">ADMIN</string>
     <string name="gantipassword">Ganti password akun anda</string>

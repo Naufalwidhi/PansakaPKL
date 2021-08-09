@@ -13,4 +13,6 @@ class PrefsToken(context: Context) {
     }
 
     fun getusertoken() = prefs.getString("token", "")!!
+
+    fun deletetoken() = prefs.edit().remove("token").commit()
 }
