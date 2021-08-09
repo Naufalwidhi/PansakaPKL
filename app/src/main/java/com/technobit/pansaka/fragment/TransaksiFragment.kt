@@ -6,10 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.technobit.pansaka.R
 import com.technobit.pansaka.activity.DetailTransaksiActivity
 import com.technobit.pansaka.adapter.TransaksiAdapter
@@ -24,12 +26,14 @@ import kotlinx.android.synthetic.main.fragment_transaksi.toolbar_transaksi
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import com.technobit.pansaka.fragment.TransaksiFragment as TransaksiFragment
 
 class TransaksiFragment : Fragment(), TransaksiListener {
     private val myPrefToken by lazy { PrefsToken(this.requireContext()) }
     private lateinit var transaksiAdapter: TransaksiAdapter
     private lateinit var rvTransaksi: RecyclerView
     private lateinit var token: String
+    val bottomSheetFragment = BottomSheetFragment()
 
     override fun onClick(position: Int, transaksi: Transaction) {
 
@@ -62,6 +66,9 @@ class TransaksiFragment : Fragment(), TransaksiListener {
         (activity as AppCompatActivity).setSupportActionBar(toolbar_transaksi)
         (activity as AppCompatActivity).supportActionBar?.title = "Transaction"
 
+        btn_filter.setOnClickListener {
+            bottomSheetFragment.show((activity as AppCompatActivity).supportFragmentManager, "BottomSheetDialog")
+        }
     }
 
     private fun loadTransaksi() {

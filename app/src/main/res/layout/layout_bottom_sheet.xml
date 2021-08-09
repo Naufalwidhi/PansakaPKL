@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#3F51B5"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="337dp"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/opensans_bold"
+            android:gravity="center"
+            android:text="Filter"
+            android:textColor="@color/white"
+            android:textSize="30dp"
+            android:paddingStart="50dp"/>
+
+        <ImageView
+            android:id="@+id/btn_close"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:src="@drawable/icon_close" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:orientation="horizontal"
+        android:padding="20dp">
+
+        <LinearLayout
+            android:id="@+id/btn_change_month"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/icon_date"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bulan"
+                    android:fontFamily="@font/opensans_semibold"
+                    android:textSize="13dp"
+                    android:layout_marginStart="15dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Agustus"
+                    android:fontFamily="@font/opensans_bold"
+                    android:textSize="14dp"
+                    android:layout_marginStart="15dp"
+                    android:textColor="#3F51B5"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_set_filter"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/button_bg2"
+            android:text="Set Filter"
+            android:textColor="#3F51B5"
+            android:layout_marginStart="100dp"
+            android:layout_gravity="end|center"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="300dp"
+        android:layout_height="1dp"
+        android:background="#C3C3C3"
+        android:layout_gravity="center"/>
+
+</LinearLayout>
