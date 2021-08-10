@@ -3,12 +3,10 @@ package com.technobit.pansaka.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.util.rangeTo
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.technobit.pansaka.R
 import com.technobit.pansaka.model.Transaction
-//import com.technobit.pansaka.model.DashboardListTransaction
 import kotlinx.android.synthetic.main.list_item_transaksi.view.*
 
 class TransaksiAdapter(val listener: TransaksiListener) : RecyclerView.Adapter<TransaksiVH>() {
@@ -20,11 +18,11 @@ class TransaksiAdapter(val listener: TransaksiListener) : RecyclerView.Adapter<T
         transaksiData.addAll(data)
         notifyDataSetChanged()
     }
-
-    fun addData(Transaction: Transaction) {
-        transaksiData.add(Transaction)
-        notifyDataSetChanged()
-    }
+//
+//    fun addData(Transaction: Transaction) {
+//        transaksiData.add(Transaction)
+//        notifyDataSetChanged()
+//    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TransaksiVH {
         val view = LayoutInflater

@@ -9,20 +9,21 @@ import com.technobit.pansaka.R
 import com.technobit.pansaka.model.DashboardListTransaction
 import kotlinx.android.synthetic.main.list_item_dashboard.view.*
 
-class TransaksiDashboardAdapter (val listener : TransaksiDashboardListener) : RecyclerView.Adapter<TransaksiDashboardVH>(){
+class TransaksiDashboardAdapter(val listener: TransaksiDashboardListener) :
+    RecyclerView.Adapter<TransaksiDashboardVH>() {
 
-        private val transaksiDashboardData = arrayListOf<DashboardListTransaction>()
+    private val transaksiDashboardData = arrayListOf<DashboardListTransaction>()
 
-        fun updateData(data: ArrayList<DashboardListTransaction>){
-            transaksiDashboardData.clear()
-            transaksiDashboardData.addAll(data)
-            notifyDataSetChanged()
-        }
-
-    fun addData(dashboardListTransaction: DashboardListTransaction){
-        transaksiDashboardData.add(dashboardListTransaction)
+    fun updateData(data: ArrayList<DashboardListTransaction>) {
+        transaksiDashboardData.clear()
+        transaksiDashboardData.addAll(data)
         notifyDataSetChanged()
     }
+//
+//    fun addData(dashboardListTransaction: DashboardListTransaction) {
+//        transaksiDashboardData.add(dashboardListTransaction)
+//        notifyDataSetChanged()
+//    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TransaksiDashboardVH {
         val view = LayoutInflater
@@ -65,7 +66,7 @@ class TransaksiDashboardVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
 }
 
-interface TransaksiDashboardListener{
+interface TransaksiDashboardListener {
 
     fun onClick(position: Int, transaksiDashboard: DashboardListTransaction)
 

@@ -16,7 +16,6 @@ import com.technobit.pansaka.model.CustomerBuyer
 import com.technobit.pansaka.model.CustomerBuyerResponse
 import com.technobit.pansaka.model.PrefsToken
 import kotlinx.android.synthetic.main.fragment_customer_buyer.*
-import kotlinx.android.synthetic.main.fragment_dashboard.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

@@ -27,8 +27,8 @@ class LoginActivity : AppCompatActivity() {
             val token1 = "Bearer " + token
             Client.myApiClient()
                 .validatetoken(constant.appId, constant.key, token1)
-                .enqueue(object : Callback<token> {
-                    override fun onResponse(call: Call<token>, response: Response<token>) {
+                .enqueue(object : Callback<TokenResponse> {
+                    override fun onResponse(call: Call<TokenResponse>, response: Response<TokenResponse>) {
                         if (response.isSuccessful) {
                             response.body()?.let {
                                 val validate = it.message
@@ -49,8 +49,8 @@ class LoginActivity : AppCompatActivity() {
                         }
                     }
 
-                    override fun onFailure(call: Call<token>, t: Throwable) {
-                        Toast.makeText(this@LoginActivity, "Something Wrong", Toast.LENGTH_SHORT)
+                    override fun onFailure(call: Call<TokenResponse>, t: Throwable) {
+                        Toast.makeText(this@LoginActivity, t.message, Toast.LENGTH_SHORT)
                             .show()
                     }
                 })
@@ -93,16 +93,26 @@ class LoginActivity : AppCompatActivity() {
                     response: Response<UserResponse>
                 ) {
                     if (response.isSuccessful) {
+
                         response.body()?.let {
-                            val token = it.data.token
-                            myPreftoken.saveusertoken(token)
+                            val message = it.message
+                            if (message.equals("Success login")){
+                                val token = it.data.token
+                                myPreftoken.saveusertoken(token)
+                                val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                                startActivity(intent)
+                            }else{
+                                Toast.makeText(
+                                    this@LoginActivity,
+                                    "Password Salah",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
                         }
-                        val intent = Intent(this@LoginActivity, MainActivity::class.java)
-                        startActivity(intent)
                     } else {
                         Toast.makeText(
                             this@LoginActivity,
-                            "Email / Password salah",
+                            "Something Wrong",
                             Toast.LENGTH_SHORT
                         ).show()
                     }

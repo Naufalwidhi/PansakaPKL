@@ -10,7 +10,6 @@ import androidx.fragment.app.FragmentPagerAdapter
 import com.technobit.pansaka.R
 import com.technobit.pansaka.adapter.PagerAdapter
 import kotlinx.android.synthetic.main.fragment_customer.*
-import kotlinx.android.synthetic.main.fragment_transaksi.*
 
 class CustomerFragment : Fragment() {
 

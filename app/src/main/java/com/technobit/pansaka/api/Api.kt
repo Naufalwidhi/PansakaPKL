@@ -23,7 +23,7 @@ interface Api {
         @Header("appId") appId: String,
         @Header("key") key: String,
         @Header("Authorization") token: String
-    ): Call<token>
+    ): Call<TokenResponse>
 
 
     // -----------------------------------------------

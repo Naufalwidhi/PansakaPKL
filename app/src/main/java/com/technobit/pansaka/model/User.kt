@@ -6,8 +6,8 @@ import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
 data class UserResponse(
-    @SerializedName("message") val message: String,
     @SerializedName("status") val status: String,
+    @SerializedName("message") val message: String,
     @SerializedName("data") val data: User
 )
 
@@ -23,8 +23,8 @@ data class User (
 ):Parcelable
 
 data class ProfileResponse (
-    @SerializedName("message") val message: String,
     @SerializedName("status") val status: String,
+    @SerializedName("message") val message: String,
     @SerializedName("data") val data: ArrayList<Profile>
 )
 
@@ -39,21 +39,21 @@ data class Profile (
 
 @Parcelize
 @Entity
-data class token (
-    @SerializedName("message") val message: String,
-    @SerializedName("status") val status: String
+data class TokenResponse (
+    @SerializedName("status") val status: String,
+    @SerializedName("message") val message: String
 ):Parcelable
 
 @Parcelize
 @Entity
 data class ChangeResponse (
-    @SerializedName("message") val message: String,
-    @SerializedName("status") val status: String
+    @SerializedName("status") val status: String,
+    @SerializedName("message") val message: String
 ):Parcelable
 
 @Parcelize
 @Entity
 data class LogoutResponse (
-    @SerializedName("message") val message: String,
-    @SerializedName("status") val status: String
+    @SerializedName("status") val status: String,
+    @SerializedName("message") val message: String
 ):Parcelable

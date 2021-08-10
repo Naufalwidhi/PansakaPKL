@@ -5,10 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
@@ -19,7 +16,6 @@ import com.technobit.pansaka.api.Client
 import com.technobit.pansaka.api.constant
 import com.technobit.pansaka.model.LogoutResponse
 import com.technobit.pansaka.model.PrefsToken
-import com.technobit.pansaka.model.Profile
 import com.technobit.pansaka.model.ProfileResponse
 import kotlinx.android.synthetic.main.fragment_profile.*
 import retrofit2.Call
@@ -33,8 +29,6 @@ class ProfileFragment : Fragment() {
     private lateinit var token: String
     private lateinit var name: TextView
     private lateinit var image: ImageView
-    private lateinit var logout: Button
-    private lateinit var gantipassword: Button
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -52,8 +46,8 @@ class ProfileFragment : Fragment() {
 
         name = view.findViewById(R.id.profile_name)
         image = view.findViewById(R.id.img_profile)
-        logout = view.findViewById(R.id.btn_logout)
-        gantipassword = view.findViewById(R.id.btn_change_password)
+        val logout = view.findViewById<LinearLayout>(R.id.btn_logout)
+        val gantipassword = view.findViewById<LinearLayout>(R.id.btn_change_password)
 
         setChangePassButton()
         loadProfile()
@@ -61,14 +55,14 @@ class ProfileFragment : Fragment() {
         logout.setOnClickListener {
             logout()
         }
-        btn_change_password.setOnClickListener {
+        gantipassword.setOnClickListener {
             val intent = Intent(context, ChangePasswordActivity::class.java)
             startActivity(intent)
         }
     }
 
     private fun logout() {
-        val token = myPreftoken.getusertoken()
+        val token = "Bearer "+myPreftoken.getusertoken()
         Client.myApiClient().logout(constant.appId, constant.key, token)
             .enqueue(object : Callback<LogoutResponse> {
                 override fun onFailure(call: Call<LogoutResponse>, t: Throwable) {

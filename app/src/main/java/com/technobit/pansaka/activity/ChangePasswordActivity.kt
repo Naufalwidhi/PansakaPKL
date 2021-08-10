@@ -57,7 +57,7 @@ class ChangePasswordActivity : AppCompatActivity() {
     }
 
     private fun gantipassword(passbaru: String) {
-        val token = myPreftoken.getusertoken()
+        val token = "Bearer "+myPreftoken.getusertoken()
         Client.myApiClient().changepassword(constant.appId, constant.key, token, passbaru)
             .enqueue(object : Callback<ChangeResponse>{
                 override fun onFailure(call: Call<ChangeResponse>, t: Throwable) {

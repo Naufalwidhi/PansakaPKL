@@ -1,6 +1,5 @@
 package com.technobit.pansaka.fragment
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,7 +10,6 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.technobit.pansaka.R
-import com.technobit.pansaka.activity.DetailTransaksiActivity
 import com.technobit.pansaka.adapter.TransaksiDashboardAdapter
 import com.technobit.pansaka.adapter.TransaksiDashboardListener
 import com.technobit.pansaka.api.Client

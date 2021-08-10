@@ -40,6 +40,7 @@
                 android:src="@drawable/icon_date"/>
 
             <LinearLayout
+                android:id="@+id/btn_date"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
