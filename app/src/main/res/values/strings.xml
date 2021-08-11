@@ -73,5 +73,6 @@
     <string name="jumlah_barang">Jumlah Barang</string>
     <string name="detail_pemesanan">Detail Pemesanan</string>
     <string name="nomor_invoice">Nomor Invoice</string>
+    <string name="apakah_anda_yakin">Apakah anda yakin ?</string>
 
 </resources>

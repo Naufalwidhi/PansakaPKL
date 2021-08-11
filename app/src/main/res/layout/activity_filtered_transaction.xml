@@ -12,7 +12,7 @@
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar_transaksi"
+            android:id="@+id/toolbar_transaksi2"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize" />
 
@@ -36,14 +36,14 @@
             android:textSize="16sp" />
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-            android:id="@+id/swipe_transaksi"
+            android:id="@+id/swipe_transaksi2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/tv_inputan_customer"
             android:layout_marginTop="5dp">
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_transaksi"
+                android:id="@+id/rv_transaksi2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
 

@@ -1,5 +1,7 @@
 package com.technobit.pansaka.fragment
 
+import android.app.AlertDialog
+import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -18,6 +20,7 @@ import com.technobit.pansaka.model.LogoutResponse
 import com.technobit.pansaka.model.PrefsToken
 import com.technobit.pansaka.model.ProfileResponse
 import kotlinx.android.synthetic.main.fragment_profile.*
+import kotlinx.android.synthetic.main.layout_logout_dialog.view.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -27,8 +30,7 @@ class ProfileFragment : Fragment() {
 
     private val myPreftoken by lazy { PrefsToken(this.requireContext()) }
     private lateinit var token: String
-    private lateinit var name: TextView
-    private lateinit var image: ImageView
+    private lateinit var dialog: Dialog
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,8 +46,6 @@ class ProfileFragment : Fragment() {
         (activity as AppCompatActivity).setSupportActionBar(toolbar_profile)
         (activity as AppCompatActivity).supportActionBar?.title = "Profile"
 
-        name = view.findViewById(R.id.profile_name)
-        image = view.findViewById(R.id.img_profile)
         val logout = view.findViewById<LinearLayout>(R.id.btn_logout)
         val gantipassword = view.findViewById<LinearLayout>(R.id.btn_change_password)
 
@@ -53,7 +53,19 @@ class ProfileFragment : Fragment() {
         loadProfile()
 
         logout.setOnClickListener {
-            logout()
+            val mDialogView = LayoutInflater.from(context).inflate(R.layout.layout_logout_dialog, null)
+            val mBuilder = AlertDialog.Builder(context)
+                .setView(mDialogView)
+            val mAlertDialog = mBuilder.show()
+
+            mDialogView.btn_logout_iya.setOnClickListener {
+                logout()
+                mAlertDialog.dismiss()
+            }
+
+            mDialogView.btn_logout_tidak.setOnClickListener {
+                mAlertDialog.dismiss()
+            }
         }
         gantipassword.setOnClickListener {
             val intent = Intent(context, ChangePasswordActivity::class.java)
@@ -113,7 +125,9 @@ class ProfileFragment : Fragment() {
                     if (response.isSuccessful) {
                         response.body()?.let {
                             val name_profile = it.data[0].nameprofile
+                            val emaill = it.data[0].email
                             profile_name?.text = name_profile
+                            email?.text = emaill
                             img_profile.apply {
                                 context?.let { it1 ->
                                     Glide.with(it1)

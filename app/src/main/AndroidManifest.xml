@@ -6,40 +6,32 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/img_logo"
-        android:roundIcon="@drawable/img_logo"
+        android:icon="@drawable/logo_pansaka2"
+        android:label="Backofice App"
+        android:roundIcon="@drawable/logo_pansaka2"
         android:supportsRtl="true"
         android:theme="@style/Apptheme.NoActionbar"
-        android:label="Backofice App"
         android:usesCleartextTraffic="true">
+        <activity android:name=".activity.FilteredTransaction"></activity>
         <activity
             android:name=".activity.OnBoardingActivity"
             android:theme="@style/Apptheme.NoActionbar">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity
             android:name=".activity.LoginActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
-
-        </activity>
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
         <activity
             android:name=".activity.MainActivity"
             android:theme="@style/Apptheme.NoActionbar" />
-
         <activity android:name=".activity.ChangePasswordActivity" />
         <activity
             android:name=".activity.DetailTransaksiActivity"
-            android:theme="@style/Apptheme.NoActionbar" >
-
-
-
-        </activity>
+            android:theme="@style/Apptheme.NoActionbar"></activity>
     </application>
 
 </manifest>
