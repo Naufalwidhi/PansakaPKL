@@ -30,23 +30,23 @@ class LoginActivity : AppCompatActivity() {
                 .enqueue(object : Callback<TokenResponse> {
                     override fun onResponse(call: Call<TokenResponse>, response: Response<TokenResponse>) {
                         if (response.isSuccessful) {
-//                            response.body()?.let {
-//                                val validate = it.message
-//                                if (validate.equals("Token Valid")) {
+                            response.body()?.let {
+                                val validate = it.message
+                                if (validate.equals("Token Valid")) {
                                     val intent =
                                         Intent(this@LoginActivity, MainActivity::class.java)
                                     startActivity(intent)
                                     finish()
-//                                } else {
-//                                    Toast.makeText(
-//                                        this@LoginActivity,
-//                                        "Silahkan Login Kembali",
-//                                        Toast.LENGTH_SHORT
-//                                    )
-//                                        .show()
-//                                }
+                                } else {
+                                    Toast.makeText(
+                                        this@LoginActivity,
+                                        "Silahkan Login Kembali",
+                                        Toast.LENGTH_SHORT
+                                    )
+                                        .show()
+                                }
                             }
-//                        }
+                        }
                     }
 
                     override fun onFailure(call: Call<TokenResponse>, t: Throwable) {

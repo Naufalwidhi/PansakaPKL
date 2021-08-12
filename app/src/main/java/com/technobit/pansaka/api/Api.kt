@@ -18,7 +18,7 @@ interface Api {
         @Field("password") password: String
     ): Call<UserResponse>
 
-    @POST("validatetoken")
+    @GET("validatetoken")
     fun validatetoken(
         @Header("appId") appId: String,
         @Header("key") key: String,

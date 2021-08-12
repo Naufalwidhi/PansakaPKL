@@ -15,8 +15,9 @@ class TransaksiDashboardAdapter(val listener: TransaksiDashboardListener) :
     private val transaksiDashboardData = arrayListOf<DashboardListTransaction>()
 
     fun updateData(data: ArrayList<DashboardListTransaction>) {
+
         transaksiDashboardData.clear()
-        transaksiDashboardData.addAll(data)
+        transaksiDashboardData.addAll(data.take(10))
         notifyDataSetChanged()
     }
 //
