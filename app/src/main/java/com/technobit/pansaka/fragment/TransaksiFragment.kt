@@ -24,6 +24,8 @@ import kotlinx.android.synthetic.main.fragment_transaksi.toolbar_transaksi
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.text.SimpleDateFormat
+import java.util.*
 
 class TransaksiFragment : Fragment(), TransaksiListener {
     private val myPrefToken by lazy { PrefsToken(this.requireContext()) }
@@ -70,10 +72,14 @@ class TransaksiFragment : Fragment(), TransaksiListener {
 
     private fun loadTransaksi() {
         token = "Bearer " + myPrefToken.getusertoken()
+        val simpledate = SimpleDateFormat("YYYYMM")
+        val currenttime: String = simpledate.format(Date())
+        val starttime = currenttime+"01"
+        val endtime = currenttime+"30"
         swipe_transaksi?.isRefreshing = true
 
         Client.myApiClient()
-            .listTransactionDetail(constant.appId, constant.key, token)
+            .listTransactionDetail(constant.appId, constant.key, token, starttime, endtime)
             .enqueue(object : Callback<TransactionResponse> {
                 override fun onFailure(call: Call<TransactionResponse>, t: Throwable) {
                     Toast.makeText(context, t.message, Toast.LENGTH_LONG).show()

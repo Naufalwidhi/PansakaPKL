@@ -6,21 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentPagerAdapter
+import com.google.android.material.tabs.TabLayoutMediator
 import com.technobit.pansaka.R
 import com.technobit.pansaka.adapter.PagerAdapter
 import kotlinx.android.synthetic.main.fragment_customer.*
 
 class CustomerFragment : Fragment() {
-
-    private val pagerAdapter by lazy {
-        activity?.let {
-            PagerAdapter(
-                it.supportFragmentManager,
-                FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT
-            )
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,15 +27,14 @@ class CustomerFragment : Fragment() {
         (activity as AppCompatActivity).setSupportActionBar(toolbar_customer)
         (activity as AppCompatActivity).supportActionBar?.title = "Customer"
 
-        pagerAdapter?.addFragment(CustomerBuyerFragment(), "Buyer")
-        pagerAdapter?.addFragment(CustomerSellerFragment(), "Seller")
-
-        view_pager?.apply {
-            adapter = pagerAdapter
-        }
-
-        tab_customer?.setupWithViewPager(view_pager)
-
-
+        val adapter = PagerAdapter(childFragmentManager, lifecycle)
+        view_pager.offscreenPageLimit = 2
+        view_pager.adapter = adapter
+        TabLayoutMediator(tab_customer, view_pager) { tab, i ->
+            when (i) {
+                0 -> tab.text = "Buyer"
+                1 -> tab.text = "Seller"
+            }
+        }.attach()
     }
 }

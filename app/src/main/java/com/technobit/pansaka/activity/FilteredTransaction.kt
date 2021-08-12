@@ -26,10 +26,13 @@ class FilteredTransaction : AppCompatActivity(), TransaksiListener {
     private val myPrefToken by lazy { PrefsToken(this) }
     private lateinit var transaksiAdapter: TransaksiAdapter
     private lateinit var rvTransaksi: RecyclerView
+    private var getdate:String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_filtered_transaction)
+
+        getdate = intent.getStringExtra("Date")!!
 
         setSupportActionBar(toolbar_transaksi2)
         supportActionBar?.title = "Transaction"
@@ -41,11 +44,13 @@ class FilteredTransaction : AppCompatActivity(), TransaksiListener {
     }
 
     private fun loadTransaksiFiltered() {
+        val startdate = getdate+"01"
+        val enddate = getdate+"30"
         token = "Bearer " + myPrefToken.getusertoken()
         swipe_transaksi?.isRefreshing = true
 
         Client.myApiClient()
-            .listTransactionDetail(constant.appId, constant.key, token)
+            .listTransactionDetail(constant.appId, constant.key, token, startdate, enddate)
             .enqueue(object : Callback<TransactionResponse> {
                 override fun onFailure(call: Call<TransactionResponse>, t: Throwable) {
                     Toast.makeText(this@FilteredTransaction, t.message, Toast.LENGTH_LONG).show()
@@ -82,5 +87,10 @@ class FilteredTransaction : AppCompatActivity(), TransaksiListener {
         startActivity(
             intent
         )
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return super.onSupportNavigateUp()
     }
 }

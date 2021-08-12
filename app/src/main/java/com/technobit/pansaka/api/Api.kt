@@ -64,11 +64,14 @@ interface Api {
         @Header("Authorization") token: String
     ): Call<ProfileResponse>
 
-    @GET("getlisttransactiondetail")
+    @FormUrlEncoded
+    @POST("getlisttransactiondetail")
     fun listTransactionDetail(
         @Header("appId") appId: String,
         @Header("key") appKey: String,
-        @Header("Authorization") token: String
+        @Header("Authorization") token: String,
+        @Field("start_date") startdate: String,
+        @Field("end_date") enddate: String
     ): Call<TransactionResponse>
 
     @FormUrlEncoded
