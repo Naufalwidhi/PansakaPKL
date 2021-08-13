@@ -79,7 +79,7 @@ class DashboardFragment : Fragment(), TransaksiDashboardListener {
                             val totalbuyer3 = it.data[0].totalbuyer
                             val totalseller4 = it.data[0].totalseller
                             tv_total_transaksi_dashboard.text = totaltransaksi1
-                            tv_total_omset_dashboard.text = totalomset2
+                            tv_total_omset_dashboard.text = "IDR "+totalomset2
                             tv_total_buyer_dashboard.text = totalbuyer3
                             tv_total_seller_dashboard.text = totalseller4
                         }

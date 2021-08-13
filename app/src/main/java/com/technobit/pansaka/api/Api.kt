@@ -83,8 +83,7 @@ interface Api {
         @Field("password") password: String
     ): Call<ChangeResponse>
 
-    @FormUrlEncoded
-    @POST("logout")
+    @GET("logout")
     fun logout(
         @Header("appId") appId: String,
         @Header("key") key: String,

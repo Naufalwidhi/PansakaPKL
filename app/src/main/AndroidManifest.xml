@@ -12,7 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/Apptheme.NoActionbar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.FilteredTransaction"></activity>
         <activity
             android:name=".activity.OnBoardingActivity"
             android:theme="@style/Apptheme.NoActionbar">
@@ -24,14 +23,15 @@
         </activity>
         <activity
             android:name=".activity.LoginActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
             android:name=".activity.MainActivity"
             android:theme="@style/Apptheme.NoActionbar" />
         <activity android:name=".activity.ChangePasswordActivity" />
         <activity
             android:name=".activity.DetailTransaksiActivity"
-            android:theme="@style/Apptheme.NoActionbar"></activity>
+            android:theme="@style/Apptheme.NoActionbar"/>
+        <activity android:name=".activity.FilteredTransaction"/>
     </application>
 
 </manifest>

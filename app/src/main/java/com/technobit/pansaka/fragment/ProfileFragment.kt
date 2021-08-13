@@ -74,11 +74,11 @@ class ProfileFragment : Fragment() {
     }
 
     private fun logout() {
-        val token = "Bearer "+myPreftoken.getusertoken()
+        val token = "Bearer "+ myPreftoken.getusertoken()
         Client.myApiClient().logout(constant.appId, constant.key, token)
             .enqueue(object : Callback<LogoutResponse> {
                 override fun onFailure(call: Call<LogoutResponse>, t: Throwable) {
-                    Toast.makeText(context, t.message, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "Halo", Toast.LENGTH_SHORT).show()
                 }
                 override fun onResponse(
                     call: Call<LogoutResponse>,
