@@ -31,7 +31,7 @@
             android:id="@+id/btn_logout_tidak"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:text="Tidak"
+            android:text="@string/tidak"
             android:background="@drawable/dibatalkan_bg"
             android:fontFamily="@font/opensans_bold"
             android:textColor="@color/white"/>
@@ -40,7 +40,7 @@
             android:id="@+id/btn_logout_iya"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:text="Iya"
+            android:text="@string/iya"
             android:layout_marginStart="20dp"
             android:background="@drawable/sukses_bg"
             android:fontFamily="@font/opensans_bold"
