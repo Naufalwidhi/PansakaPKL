@@ -75,5 +75,7 @@
     <string name="detail_pemesanan">Detail Pemesanan</string>
     <string name="nomor_invoice">Nomor Invoice</string>
     <string name="apakah_anda_yakin">Apakah anda yakin ?</string>
+    <string name="iya">Iya</string>
+    <string name="tidak">Tidak</string>
 
 </resources>

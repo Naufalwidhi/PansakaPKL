@@ -91,7 +91,11 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
                         if (getbulan1.equals("11")){
                             bulan.setText("November")
                         }
+<<<<<<< HEAD
                         if(getbulan1.equals("12")){
+=======
+                        if (getbulan1.equals("12")){
+>>>>>>> 6ab2cd29bfbcf80a2d62562c1b5e725292917a53
                             bulan.setText("Desember")
                         }
                     },
