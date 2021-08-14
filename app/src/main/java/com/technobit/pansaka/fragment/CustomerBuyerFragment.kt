@@ -42,7 +42,7 @@ class CustomerBuyerFragment : Fragment(), CustBuyerListener {
     }
 
     private fun loadcustbuyer() {
-        swipe.isRefreshing = true
+        swipe?.isRefreshing = true
         val token = "Bearer " + myPreftoken.getusertoken()
 
         Client.myApiClient().customerbuyer(constant.appId, constant.key, token)
@@ -55,7 +55,7 @@ class CustomerBuyerFragment : Fragment(), CustBuyerListener {
                         response.body()?.let {
                             customerBuyerAdapter.updateData(it.data)
                         }
-                        swipe.isRefreshing = false
+                        swipe?.isRefreshing = false
                     }
                 }
 
@@ -66,7 +66,9 @@ class CustomerBuyerFragment : Fragment(), CustBuyerListener {
     }
 
     private fun setView() {
-        loadcustbuyer()
+        swipe.setOnRefreshListener {
+            loadcustbuyer()
+        }
         customerBuyerAdapter = CustomerBuyerAdapter(this)
         rv_customer?.apply {
             layoutManager = LinearLayoutManager(context)

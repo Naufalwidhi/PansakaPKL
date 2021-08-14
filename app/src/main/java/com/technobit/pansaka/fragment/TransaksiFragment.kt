@@ -66,7 +66,10 @@ class TransaksiFragment : Fragment(), TransaksiListener {
         (activity as AppCompatActivity).supportActionBar?.title = "Transaction"
 
         btn_filter.setOnClickListener {
-            bottomSheetFragment.show((activity as AppCompatActivity).supportFragmentManager, "BottomSheetDialog")
+            bottomSheetFragment.show(
+                (activity as AppCompatActivity).supportFragmentManager,
+                "BottomSheetDialog"
+            )
         }
     }
 
@@ -74,8 +77,8 @@ class TransaksiFragment : Fragment(), TransaksiListener {
         token = "Bearer " + myPrefToken.getusertoken()
         val simpledate = SimpleDateFormat("YYYYMM")
         val currenttime: String = simpledate.format(Date())
-        val starttime = currenttime+"01"
-        val endtime = currenttime+"30"
+        val starttime = currenttime + "01"
+        val endtime = currenttime + "30"
         swipe_transaksi?.isRefreshing = true
 
         Client.myApiClient()
@@ -100,7 +103,9 @@ class TransaksiFragment : Fragment(), TransaksiListener {
     }
 
     private fun setView() {
-        loadTransaksi()
+        swipe_transaksi.setOnRefreshListener {
+            loadTransaksi()
+        }
         transaksiAdapter = TransaksiAdapter(this)
         rv_transaksi?.apply {
             layoutManager = LinearLayoutManager(context)

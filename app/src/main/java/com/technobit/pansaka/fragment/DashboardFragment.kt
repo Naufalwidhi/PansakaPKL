@@ -22,6 +22,7 @@ import kotlinx.android.synthetic.main.fragment_dashboard.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.text.DecimalFormat
 
 class DashboardFragment : Fragment(), TransaksiDashboardListener {
     private val myPreftoken by lazy { PrefsToken(this.requireContext()) }
@@ -74,12 +75,14 @@ class DashboardFragment : Fragment(), TransaksiDashboardListener {
 
                     if (response.isSuccessful) {
                         response.body()?.let {
+                            val currencyformat = DecimalFormat("#,###")
                             val totaltransaksi1 = it.data[0].totaltransaksi
                             val totalomset2 = it.data[0].totalomset
                             val totalbuyer3 = it.data[0].totalbuyer
                             val totalseller4 = it.data[0].totalseller
+                            val omset = currencyformat.format(totalomset2.toInt())
                             tv_total_transaksi_dashboard.text = totaltransaksi1
-                            tv_total_omset_dashboard.text = "IDR "+totalomset2
+                            tv_total_omset_dashboard.text = "IDR "+omset.toString()
                             tv_total_buyer_dashboard.text = totalbuyer3
                             tv_total_seller_dashboard.text = totalseller4
                         }

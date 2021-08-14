@@ -15,7 +15,6 @@ import com.technobit.pansaka.model.PrefsToken
 import com.technobit.pansaka.model.Transaction
 import com.technobit.pansaka.model.TransactionResponse
 import kotlinx.android.synthetic.main.activity_filtered_transaction.*
-import kotlinx.android.synthetic.main.fragment_transaksi.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -47,7 +46,7 @@ class FilteredTransaction : AppCompatActivity(), TransaksiListener {
         val startdate = getdate+"01"
         val enddate = getdate+"30"
         token = "Bearer " + myPrefToken.getusertoken()
-        swipe_transaksi?.isRefreshing = true
+        swipe_transaksi2?.isRefreshing = true
 
         Client.myApiClient()
             .listTransactionDetail(constant.appId, constant.key, token, startdate, enddate)
@@ -64,14 +63,16 @@ class FilteredTransaction : AppCompatActivity(), TransaksiListener {
                         response.body()?.let {
                             transaksiAdapter.updateData(it.data)
                         }
-                        swipe_transaksi?.isRefreshing = false
+                        swipe_transaksi2?.isRefreshing = false
                     }
                 }
             })
     }
 
     private fun setView() {
-        loadTransaksiFiltered()
+        swipe_transaksi2.setOnRefreshListener {
+            loadTransaksiFiltered()
+        }
         transaksiAdapter = TransaksiAdapter(this)
         rv_transaksi2?.apply {
             layoutManager = LinearLayoutManager(context)

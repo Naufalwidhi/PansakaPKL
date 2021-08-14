@@ -17,8 +17,9 @@ class DetailTransaksiActivity : AppCompatActivity() {
 
         transaksi = intent.getParcelableExtra("detail")!!
 
+        val tgl_transaksi = transaksi.dt_transaction.split(" ").toTypedArray()
         status_transaksi?.text = transaksi.transaction_status
-        tanggal_transaksi?.text = transaksi.dt_transaction
+        tanggal_transaksi?.text = tgl_transaksi[0] + " " + tgl_transaksi[1]
         nama_produk_transaksi?.text = transaksi.name
         nama_toko_transaksi?.text = transaksi.shop
         harga_transaksi?.text = transaksi.price
@@ -34,7 +35,7 @@ class DetailTransaksiActivity : AppCompatActivity() {
         setUpToolbar("Detail Transaksi")
     }
 
-    private fun setUpToolbar(title: String){
+    private fun setUpToolbar(title: String) {
         setSupportActionBar(toolbar_transaksi) // set toolbar
         supportActionBar?.title = title //set title
 

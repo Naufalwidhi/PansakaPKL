@@ -41,7 +41,7 @@ class CustomerSellerFragment : Fragment(), CustSellerListener {
     }
 
     private fun loadcustseller() {
-        swipe.isRefreshing = true
+        swipe?.isRefreshing = true
         val token = "Bearer " + myPreftoken.getusertoken()
 
         Client.myApiClient().customerseller(constant.appId, constant.key, token)
@@ -54,8 +54,7 @@ class CustomerSellerFragment : Fragment(), CustSellerListener {
                         response.body()?.let {
                             customerSellerAdapter.updateData(it.data)
                         }
-                        swipe.isRefreshing = false
-
+                        swipe?.isRefreshing = false
                     }
                 }
                 override fun onFailure(call: Call<CustomerSellerResponse>, t: Throwable) {
@@ -65,7 +64,9 @@ class CustomerSellerFragment : Fragment(), CustSellerListener {
     }
 
     private fun setView() {
-        loadcustseller()
+        swipe.setOnRefreshListener {
+            loadcustseller()
+        }
         customerSellerAdapter = CustomerSellerAdapter(this)
         rv_customer?.apply {
             layoutManager = LinearLayoutManager(context)

@@ -9,18 +9,15 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
-import android.widget.Toast
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.technobit.pansaka.R
 import com.technobit.pansaka.activity.FilteredTransaction
-import kotlinx.android.synthetic.main.fragment_transaksi.*
-import kotlinx.android.synthetic.main.layout_bottom_sheet.*
 import java.text.SimpleDateFormat
 import java.util.*
 
 class BottomSheetFragment : BottomSheetDialogFragment() {
 
-    private var formatDate = SimpleDateFormat("YYYYMM", Locale.US)
+    private var formatDate = SimpleDateFormat("YYYY-MM-DD", Locale.US)
     private var formatMonth = SimpleDateFormat("MM", Locale.US)
     private lateinit var btndate: LinearLayout
     private lateinit var btnfilter: Button
@@ -38,9 +35,9 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        btndate = view.findViewById(R.id.btn_date)
+        btndate = view.findViewById(R.id.btn_start_date)
         btnfilter = view.findViewById(R.id.btn_set_filter)
-        bulan = view.findViewById(R.id.tv_month_bottom_sheet)
+        bulan = view.findViewById(R.id.tv_month_start_bottom_sheet)
 
         btndate.setOnClickListener {
             val getDate = Calendar.getInstance()
@@ -103,6 +100,7 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
         btnfilter.setOnClickListener {
             val intent = Intent(context,FilteredTransaction::class.java)
             intent.putExtra("Date", getdate)
+            intent.putExtra("enddate", getdate)
             startActivity(intent)
         }
     }
