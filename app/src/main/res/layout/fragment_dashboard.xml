@@ -22,7 +22,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_dashboard"
-        android:layout_marginBottom="5dp"
         android:fontFamily="@font/opensans_regular"
         android:paddingStart="13dp"
         android:paddingEnd="10dp"
@@ -33,13 +32,13 @@
     <RelativeLayout
         android:id="@+id/container_dasboard_atas"
         android:layout_width="match_parent"
-        android:layout_height="205dp"
+        android:layout_height="200dp"
         android:layout_below="@+id/tv_inputan_dashboard"
         android:layout_centerHorizontal="true">
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="190dp"
+            android:layout_height="182dp"
             android:layout_marginTop="5dp"
             android:background="@drawable/bg_dashboard"
             tools:ignore="ContentDescription" />
@@ -49,7 +48,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginStart="50dp"
+            android:layout_marginStart="25dp"
             android:layout_marginTop="6dp"
             android:background="@drawable/dasboard_stats_bg"
             android:orientation="vertical">
@@ -57,7 +56,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="8dp"
                 android:text="@string/total_transaksi"
                 android:textColor="#676767"
                 android:textSize="11sp"
@@ -67,11 +67,11 @@
                 android:id="@+id/tv_total_transaksi_dashboard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="18dp"
                 android:fontFamily="@font/opensans_extrabold"
                 android:gravity="center"
                 android:textColor="#0E77D6"
-                android:textSize="30sp" />
+                android:textSize="25sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -80,7 +80,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/container_total_transaksi"
             android:layout_centerHorizontal="true"
-            android:layout_marginStart="50dp"
+            android:layout_marginStart="25dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/dasboard_stats_bg"
             android:orientation="vertical">
@@ -88,7 +88,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="8dp"
                 android:text="@string/total_omzet"
                 android:textColor="#676767"
                 android:textSize="11sp"
@@ -98,11 +99,11 @@
                 android:id="@+id/tv_total_omset_dashboard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="18dp"
                 android:fontFamily="@font/opensans_extrabold"
                 android:gravity="center"
                 android:textColor="#0E77D6"
-                android:textSize="30sp" />
+                android:textSize="25sp" />
 
         </LinearLayout>
 
@@ -128,7 +129,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="8dp"
                 android:text="@string/total_seller"
                 android:textColor="#676767"
                 android:textSize="11sp"
@@ -157,7 +159,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="8dp"
                 android:text="@string/total_buyer"
                 android:textColor="#676767"
                 android:textSize="11sp"
