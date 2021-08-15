@@ -2,7 +2,6 @@ package com.technobit.pansaka.fragment
 
 import android.app.DatePickerDialog
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,26 +9,20 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
-import android.widget.Toast
-import androidx.annotation.RequiresApi
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.technobit.pansaka.R
 import com.technobit.pansaka.activity.FilteredTransaction
 import java.text.SimpleDateFormat
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
 import java.util.*
 
 class BottomSheetFragment : BottomSheetDialogFragment() {
 
-    private var formatDate = SimpleDateFormat("yyyy-MM-dd", Locale.US)
-    private lateinit var btnstartdate: LinearLayout
-    private lateinit var btnenddate: LinearLayout
+    private var formatDate = SimpleDateFormat("YYYY-MM-DD", Locale.US)
+    private var formatMonth = SimpleDateFormat("MM", Locale.US)
+    private lateinit var btndate: LinearLayout
     private lateinit var btnfilter: Button
-    private lateinit var get_start_date: String
-    private lateinit var get_end_date: String
+    private lateinit var getdate: String
     private lateinit var bulan: TextView
-    private lateinit var bulan2: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,130 +32,76 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
         return inflater.inflate(R.layout.layout_bottom_sheet, container, false)
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        btnstartdate = view.findViewById(R.id.btn_start_date)
-        btnenddate = view.findViewById(R.id.btn_end_date)
+        btndate = view.findViewById(R.id.btn_start_date)
         btnfilter = view.findViewById(R.id.btn_set_filter)
         bulan = view.findViewById(R.id.tv_month_start_bottom_sheet)
-        bulan2 = view.findViewById(R.id.tv_month_end_bottom_sheet)
 
-        val current = LocalDateTime.now()
-        val formartter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
-        val formatted = current.format(formartter)
-
-        bulan.setText(formatted)
-        bulan2.setText(formatted)
-
-        date()
-//        endDate()
-
-//        val tanggal = bulan.text.split("-").toTypedArray()
-//        val tanggal2 = bulan2.text.split("-").toTypedArray()
-//
-//        btnfilter.setOnClickListener {
-//
-//            if (tanggal[2].toInt()>tanggal2[2].toInt()){
-//                val intent = Intent(context,FilteredTransaction::class.java)
-//                intent.putExtra("startDate", getdate)
-//                intent.putExtra("endDate", getdate)
-//                startActivity(intent)
-//            } else{
-//                Toast.makeText(context, "Format tanggal salah", Toast.LENGTH_SHORT).show()
-//            }
-//        }
-
-    }
-
-    private fun date() {
-
-        btnstartdate.setOnClickListener {
+        btndate.setOnClickListener {
             val getDate = Calendar.getInstance()
             val currentYear: Int = getDate.get(Calendar.YEAR)
             val currentMonth: Int = getDate.get(Calendar.MONTH)
             val currentDay: Int = getDate.get(Calendar.DAY_OF_MONTH)
 
             val datepicker = context?.let { it1 ->
-                DatePickerDialog(
-                    it1, android.R.style.Theme_DeviceDefault_Dialog,
-                    DatePickerDialog.OnDateSetListener { datePicker, year, month, day ->
+                DatePickerDialog(it1, android.R.style.Theme_Holo_Light_Dialog,
+                    DatePickerDialog.OnDateSetListener { datePicker, year, month, dayOfMonth ->
                         val selectdate = Calendar.getInstance()
                         selectdate.set(Calendar.YEAR, year)
                         selectdate.set(Calendar.MONTH, month)
-                        selectdate.set(Calendar.DAY_OF_MONTH, day)
                         val date = formatDate.format(selectdate.time)
-//                        val getbulan = formatMonth.format(selectdate.time)
-                        get_start_date = date
-//                        val getbulan1 = getbulan.toString()
-                        bulan.setText(date)
-
+                        val getbulan = formatMonth.format(selectdate.time)
+                        getdate = date
+                        val getbulan1 = getbulan.toString()
+                        if (getbulan1.equals("01")){
+                            bulan.setText("Januari")
+                        }
+                        if (getbulan1.equals("02")){
+                            bulan.setText("Februari")
+                        }
+                        if (getbulan1.equals("03")){
+                            bulan.setText("Maret")
+                        }
+                        if (getbulan1.equals("04")){
+                            bulan.setText("April")
+                        }
+                        if (getbulan1.equals("05")){
+                            bulan.setText("Mei")
+                        }
+                        if (getbulan1.equals("06")){
+                            bulan.setText("Juni")
+                        }
+                        if (getbulan1.equals("07")){
+                            bulan.setText("Juli")
+                        }
+                        if (getbulan1.equals("08")){
+                            bulan.setText("Agustus")
+                        }
+                        if (getbulan1.equals("09")){
+                            bulan.setText("September")
+                        }
+                        if (getbulan1.equals("10")){
+                            bulan.setText("Oktober")
+                        }
+                        if (getbulan1.equals("11")){
+                            bulan.setText("November")
+                        }
+                        if (getbulan1.equals("12")){
+                            bulan.setText("Desember")
+                        }
                     },
-                    currentYear, currentMonth, currentDay
-                )
+                    currentYear, currentMonth, currentDay)
             }
             datepicker?.show()
         }
 
-        btnenddate.setOnClickListener {
-
-            val getDate2 = Calendar.getInstance()
-            val currentYear2: Int = getDate2.get(Calendar.YEAR)
-            val currentMonth2: Int = getDate2.get(Calendar.MONTH)
-            val currentDay2: Int = getDate2.get(Calendar.DAY_OF_MONTH)
-
-            val datepicker2 = context?.let { it1 ->
-                DatePickerDialog(
-                    it1, android.R.style.Theme_DeviceDefault_Dialog,
-                    DatePickerDialog.OnDateSetListener { datePicker2, year, month, day ->
-                        val selectdate2 = Calendar.getInstance()
-                        selectdate2.set(Calendar.YEAR, year)
-                        selectdate2.set(Calendar.MONTH, month)
-                        selectdate2.set(Calendar.DAY_OF_MONTH, day)
-                        val date2 = formatDate.format(selectdate2.time)
-//                        val getbulan4 = formatMonth.format(selectdate2.time)
-                        get_end_date = date2
-//                        val getbulan3 = getbulan4.toString()
-                        bulan2.setText(date2)
-
-                    },
-                    currentYear2, currentMonth2, currentDay2
-                )
-            }
-            datepicker2?.show()
-        }
-
         btnfilter.setOnClickListener {
-
-            val tanggal = get_start_date.split("-").toTypedArray()
-            val tanggal2 = get_end_date.split("-").toTypedArray()
-
-            val tahuncvrt = tanggal[0]
-            val tahuncvrt2 = tanggal2[0]
-
-            val bulancvrt = tanggal[1]
-            val bulancvrt2 = tanggal[1]
-
-            val haricvrt = tanggal[2]
-            val haricvrt2 = tanggal[2]
-
-            if (tahuncvrt <= tahuncvrt2  && tahuncvrt == tahuncvrt2 || bulancvrt <= bulancvrt2 && bulancvrt == bulancvrt2 || haricvrt <= haricvrt2 && haricvrt == haricvrt2) {
-                if (tahuncvrt == tahuncvrt2 && bulancvrt == bulancvrt2) {
-                    if (tahuncvrt == tahuncvrt2 && bulancvrt == bulancvrt2 && haricvrt == haricvrt2) {
-                        val intent = Intent(context, FilteredTransaction::class.java)
-                        intent.putExtra("startDate", get_start_date)
-                        intent.putExtra("endDate", get_end_date)
-                        startActivity(intent)
-                    } else {
-                        Toast.makeText(context, "Format tanggal salah", Toast.LENGTH_SHORT).show()
-                    }
-                } else {
-                    Toast.makeText(context, "Format tanggal salah", Toast.LENGTH_SHORT).show()
-                }
-            } else {
-                Toast.makeText(context, "Format tanggal salah", Toast.LENGTH_SHORT).show()
-            }
+            val intent = Intent(context,FilteredTransaction::class.java)
+            intent.putExtra("Date", getdate)
+            intent.putExtra("enddate", getdate)
+            startActivity(intent)
         }
     }
 
