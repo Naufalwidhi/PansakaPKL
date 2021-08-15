@@ -3,6 +3,7 @@ package com.technobit.pansaka.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -14,6 +15,7 @@ import com.technobit.pansaka.api.constant
 import com.technobit.pansaka.model.PrefsToken
 import com.technobit.pansaka.model.Transaction
 import com.technobit.pansaka.model.TransactionResponse
+import kotlinx.android.synthetic.main.activity_detail_transaksi.*
 import kotlinx.android.synthetic.main.activity_filtered_transaction.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -26,16 +28,19 @@ class FilteredTransaction : AppCompatActivity(), TransaksiListener {
     private lateinit var transaksiAdapter: TransaksiAdapter
     private lateinit var rvTransaksi: RecyclerView
     private var getdate: String = ""
-    private var getdate2:String = ""
+    private var getdate2: String = ""
+    private lateinit var tanggal_mulai: TextView
+    private lateinit var tanggal_akhir: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_filtered_transaction)
 
-        setSupportActionBar(toolbar_transaksi2)
-        supportActionBar?.title = "Transaction Filtered"
+        setUpToolbar("Transaction Filtered")
 
         rvTransaksi = findViewById(R.id.rv_transaksi2)
+        tanggal_mulai = findViewById(R.id.tanggal_mulai)
+        tanggal_akhir = findViewById(R.id.tanggal_akhir)
 
         getdate = intent.getStringExtra("startDate")!!
         getdate2 = intent.getStringExtra("endDate")!!
@@ -47,6 +52,10 @@ class FilteredTransaction : AppCompatActivity(), TransaksiListener {
     private fun loadTransaksiFiltered() {
         val startdate = getdate
         val enddate = getdate2
+
+        tanggal_mulai.text = startdate
+        tanggal_akhir.text = enddate
+
         token = "Bearer " + myPrefToken.getusertoken()
         swipe_transaksi2?.isRefreshing = true
 //        Toast.makeText(this, "$startdate", Toast.LENGTH_SHORT).show()
@@ -81,6 +90,13 @@ class FilteredTransaction : AppCompatActivity(), TransaksiListener {
             layoutManager = LinearLayoutManager(context)
             adapter = transaksiAdapter
         }
+    }
+
+    private fun setUpToolbar(title: String) {
+        setSupportActionBar(toolbar_transaksi2) // set toolbar
+        supportActionBar?.title = title //set title
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
     override fun onClick(position: Int, transaksi: Transaction) {

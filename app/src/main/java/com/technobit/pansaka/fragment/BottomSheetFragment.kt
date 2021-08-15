@@ -147,17 +147,17 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
             val haricvrt = tanggal[2]
             val haricvrt2 = tanggal[2]
 
-            if (tahuncvrt <= tahuncvrt2) {
-                if (tahuncvrt == tahuncvrt2 && bulancvrt <= bulancvrt2) {
-                    if (tahuncvrt == tahuncvrt2 && bulancvrt == bulancvrt2 && haricvrt <= haricvrt2) {
+            if (tahuncvrt <= tahuncvrt2  && tahuncvrt == tahuncvrt2 || bulancvrt <= bulancvrt2 && bulancvrt == bulancvrt2 || haricvrt <= haricvrt2 && haricvrt == haricvrt2) {
+                if (tahuncvrt == tahuncvrt2 && bulancvrt == bulancvrt2) {
+                    if (tahuncvrt == tahuncvrt2 && bulancvrt == bulancvrt2 && haricvrt == haricvrt2) {
                         val intent = Intent(context, FilteredTransaction::class.java)
                         intent.putExtra("startDate", get_start_date)
-                        intent.putExtra("endDate", get_start_date)
+                        intent.putExtra("endDate", get_end_date)
                         startActivity(intent)
-                    }else {
+                    } else {
                         Toast.makeText(context, "Format tanggal salah", Toast.LENGTH_SHORT).show()
                     }
-                }else {
+                } else {
                     Toast.makeText(context, "Format tanggal salah", Toast.LENGTH_SHORT).show()
                 }
             } else {

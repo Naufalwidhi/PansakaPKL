@@ -11,6 +11,8 @@ import com.technobit.pansaka.api.Client
 import com.technobit.pansaka.api.constant
 import com.technobit.pansaka.model.ChangeResponse
 import com.technobit.pansaka.model.PrefsToken
+import kotlinx.android.synthetic.main.activity_change_password.*
+import kotlinx.android.synthetic.main.activity_detail_transaksi.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -26,6 +28,8 @@ class ChangePasswordActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_change_password)
+
+        setUpToolbar("Change Password")
 
         passlama = findViewById(R.id.et_password_lama)
         passbaru = findViewById(R.id.et_password_baru)
@@ -84,5 +88,17 @@ class ChangePasswordActivity : AppCompatActivity() {
                 }
 
             })
+    }
+
+    private fun setUpToolbar(title: String) {
+        setSupportActionBar(toolbar_transaksi3) // set toolbar
+        supportActionBar?.title = title //set title
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return super.onSupportNavigateUp()
     }
 }

@@ -32,7 +32,7 @@ class DetailTransaksiActivity : AppCompatActivity() {
                 .into(this)
         }
 
-        setUpToolbar("Detail Transaksi")
+        setUpToolbar("Detail Transaction")
     }
 
     private fun setUpToolbar(title: String) {
