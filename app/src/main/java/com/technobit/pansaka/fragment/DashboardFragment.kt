@@ -81,10 +81,13 @@ class DashboardFragment : Fragment(), TransaksiDashboardListener {
                             val totalbuyer3 = it.data[0].totalbuyer
                             val totalseller4 = it.data[0].totalseller
                             val omset = currencyformat.format(totalomset2.toInt())
-                            tv_total_transaksi_dashboard.text = totaltransaksi1
+                            val buyer = currencyformat.format(totalbuyer3.toInt())
+                            val seller = currencyformat.format(totalseller4.toInt())
+                            val transaksi = currencyformat.format(totaltransaksi1.toInt())
+                            tv_total_transaksi_dashboard.text = transaksi
                             tv_total_omset_dashboard.text = "IDR "+omset.toString()
-                            tv_total_buyer_dashboard.text = totalbuyer3
-                            tv_total_seller_dashboard.text = totalseller4
+                            tv_total_buyer_dashboard.text = buyer
+                            tv_total_seller_dashboard.text = seller
                         }
                     }
                 }

@@ -25,28 +25,31 @@ class FilteredTransaction : AppCompatActivity(), TransaksiListener {
     private val myPrefToken by lazy { PrefsToken(this) }
     private lateinit var transaksiAdapter: TransaksiAdapter
     private lateinit var rvTransaksi: RecyclerView
-    private var getdate:String = ""
+    private var getdate: String = ""
+    private var getdate2:String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_filtered_transaction)
 
-        getdate = intent.getStringExtra("Date")!!
-
         setSupportActionBar(toolbar_transaksi2)
-        supportActionBar?.title = "Transaction"
+        supportActionBar?.title = "Transaction Filtered"
 
         rvTransaksi = findViewById(R.id.rv_transaksi2)
+
+        getdate = intent.getStringExtra("startDate")!!
+        getdate2 = intent.getStringExtra("endDate")!!
 
         loadTransaksiFiltered()
         setView()
     }
 
     private fun loadTransaksiFiltered() {
-        val startdate = getdate+"01"
-        val enddate = getdate+"30"
+        val startdate = getdate
+        val enddate = getdate2
         token = "Bearer " + myPrefToken.getusertoken()
         swipe_transaksi2?.isRefreshing = true
+//        Toast.makeText(this, "$startdate", Toast.LENGTH_SHORT).show()
 
         Client.myApiClient()
             .listTransactionDetail(constant.appId, constant.key, token, startdate, enddate)

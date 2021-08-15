@@ -69,40 +69,42 @@
 
         <LinearLayout
             android:id="@+id/btn_change_end_month"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="40dp">
-
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/icon_date" />
+            android:gravity="end">
 
             <LinearLayout
                 android:id="@+id/btn_end_date"
-                android:layout_width="wrap_content"
+                android:layout_width="80dp"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
                     android:fontFamily="@font/opensans_semibold"
                     android:text="End date"
-                    android:textSize="13dp" />
+                    android:textSize="13dp"
+                    android:gravity="end"/>
 
                 <TextView
                     android:id="@+id/tv_month_end_bottom_sheet"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
                     android:fontFamily="@font/opensans_bold"
                     android:text="Agustus"
                     android:textColor="#3F51B5"
-                    android:textSize="14dp" />
+                    android:textSize="14dp"
+                    android:gravity="end"/>
 
             </LinearLayout>
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/icon_date" />
+
         </LinearLayout>
     </LinearLayout>
 
