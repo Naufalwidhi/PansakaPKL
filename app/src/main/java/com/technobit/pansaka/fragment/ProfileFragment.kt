@@ -1,7 +1,6 @@
 package com.technobit.pansaka.fragment
 
 import android.app.AlertDialog
-import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -15,7 +14,7 @@ import com.technobit.pansaka.R
 import com.technobit.pansaka.activity.ChangePasswordActivity
 import com.technobit.pansaka.activity.LoginActivity
 import com.technobit.pansaka.api.Client
-import com.technobit.pansaka.api.constant
+import com.technobit.pansaka.api.Constant
 import com.technobit.pansaka.model.LogoutResponse
 import com.technobit.pansaka.model.PrefsToken
 import com.technobit.pansaka.model.ProfileResponse
@@ -30,7 +29,6 @@ class ProfileFragment : Fragment() {
 
     private val myPreftoken by lazy { PrefsToken(this.requireContext()) }
     private lateinit var token: String
-    private lateinit var dialog: Dialog
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -75,7 +73,7 @@ class ProfileFragment : Fragment() {
 
     private fun logout() {
         val token = "Bearer "+ myPreftoken.getusertoken()
-        Client.myApiClient().logout(constant.appId, constant.key, token)
+        Client.myApiClient().logout(Constant.appId, Constant.key, token)
             .enqueue(object : Callback<LogoutResponse> {
                 override fun onFailure(call: Call<LogoutResponse>, t: Throwable) {
                     Toast.makeText(context, "Halo", Toast.LENGTH_SHORT).show()
@@ -116,7 +114,7 @@ class ProfileFragment : Fragment() {
     private fun loadProfile() {
         token = "Bearer " + myPreftoken.getusertoken()
         Client.myApiClient()
-            .profile(constant.appId, constant.key, token)
+            .profile(Constant.appId, Constant.key, token)
             .enqueue(object : Callback<ProfileResponse> {
                 override fun onResponse(
                     call: Call<ProfileResponse>,

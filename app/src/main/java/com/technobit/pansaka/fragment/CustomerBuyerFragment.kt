@@ -11,7 +11,7 @@ import com.technobit.pansaka.R
 import com.technobit.pansaka.adapter.CustBuyerListener
 import com.technobit.pansaka.adapter.CustomerBuyerAdapter
 import com.technobit.pansaka.api.Client
-import com.technobit.pansaka.api.constant
+import com.technobit.pansaka.api.Constant
 import com.technobit.pansaka.model.CustomerBuyer
 import com.technobit.pansaka.model.CustomerBuyerResponse
 import com.technobit.pansaka.model.PrefsToken
@@ -45,7 +45,7 @@ class CustomerBuyerFragment : Fragment(), CustBuyerListener {
         swipe?.isRefreshing = true
         val token = "Bearer " + myPreftoken.getusertoken()
 
-        Client.myApiClient().customerbuyer(constant.appId, constant.key, token)
+        Client.myApiClient().customerbuyer(Constant.appId, Constant.key, token)
             .enqueue(object : Callback<CustomerBuyerResponse> {
                 override fun onResponse(
                     call: Call<CustomerBuyerResponse>,

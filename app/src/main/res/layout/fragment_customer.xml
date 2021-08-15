@@ -32,7 +32,8 @@
             android:text="@string/list_data_buyer_dan_seller_aplikasi_pansaka"
             android:textColor="@color/black"
             android:textSize="16sp"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="10dp"
+            tools:ignore="RtlSymmetry" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab_customer"

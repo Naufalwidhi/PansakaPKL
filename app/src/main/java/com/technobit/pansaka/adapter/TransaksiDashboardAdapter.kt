@@ -20,17 +20,11 @@ class TransaksiDashboardAdapter(val listener: TransaksiDashboardListener) :
         transaksiDashboardData.addAll(data.take(10))
         notifyDataSetChanged()
     }
-//
-//    fun addData(dashboardListTransaction: DashboardListTransaction) {
-//        transaksiDashboardData.add(dashboardListTransaction)
-//        notifyDataSetChanged()
-//    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TransaksiDashboardVH {
         val view = LayoutInflater
             .from(parent.context)
             .inflate(R.layout.list_item_dashboard, parent, false)
-
         return TransaksiDashboardVH(view)
     }
 
@@ -52,8 +46,6 @@ class TransaksiDashboardVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
         itemView.nama_toko_dashboard?.text = data.shop
         itemView.jumlah_pcs_dashboard?.text = data.qty
         itemView.img_produk_dashboard?.apply {
-
-//            load gambar
             Glide.with(context)
                 .load(data.product_image)
                 .into(this)

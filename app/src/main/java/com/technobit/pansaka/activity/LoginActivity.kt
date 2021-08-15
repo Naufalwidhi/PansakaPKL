@@ -8,7 +8,7 @@ import android.widget.EditText
 import android.widget.Toast
 import com.technobit.pansaka.R
 import com.technobit.pansaka.api.Client
-import com.technobit.pansaka.api.constant
+import com.technobit.pansaka.api.Constant
 import com.technobit.pansaka.model.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -26,7 +26,7 @@ class LoginActivity : AppCompatActivity() {
         if (token.isNotEmpty()) {
             val token1 = "Bearer " + token
             Client.myApiClient()
-                .validatetoken(constant.appId, constant.key, token1)
+                .validatetoken(Constant.appId, Constant.key, token1)
                 .enqueue(object : Callback<TokenResponse> {
                     override fun onResponse(call: Call<TokenResponse>, response: Response<TokenResponse>) {
                         if (response.isSuccessful) {
@@ -82,7 +82,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun signin(username: String, password: String) {
         Client.myApiClient()
-            .login(constant.appId, constant.key, username, password)
+            .login(Constant.appId, Constant.key, username, password)
             .enqueue(object : Callback<UserResponse> {
                 override fun onFailure(call: Call<UserResponse>, t: Throwable) {
                     Toast.makeText(this@LoginActivity, t.message, Toast.LENGTH_SHORT).show()

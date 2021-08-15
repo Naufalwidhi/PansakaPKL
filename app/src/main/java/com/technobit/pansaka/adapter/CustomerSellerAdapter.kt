@@ -18,11 +18,6 @@ class CustomerSellerAdapter(val listener: CustSellerListener) : RecyclerView.Ada
         mData.addAll(data)
         notifyDataSetChanged()
     }
-//
-//    fun addData(movie: CustomerSeller){
-//        mData.add(movie)
-//        notifyDataSetChanged()
-//    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustSellerVH {
         val view = LayoutInflater

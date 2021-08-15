@@ -11,11 +11,10 @@ import com.technobit.pansaka.R
 import com.technobit.pansaka.adapter.TransaksiAdapter
 import com.technobit.pansaka.adapter.TransaksiListener
 import com.technobit.pansaka.api.Client
-import com.technobit.pansaka.api.constant
+import com.technobit.pansaka.api.Constant
 import com.technobit.pansaka.model.PrefsToken
 import com.technobit.pansaka.model.Transaction
 import com.technobit.pansaka.model.TransactionResponse
-import kotlinx.android.synthetic.main.activity_detail_transaksi.*
 import kotlinx.android.synthetic.main.activity_filtered_transaction.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -61,7 +60,7 @@ class FilteredTransaction : AppCompatActivity(), TransaksiListener {
 //        Toast.makeText(this, "$startdate", Toast.LENGTH_SHORT).show()
 
         Client.myApiClient()
-            .listTransactionDetail(constant.appId, constant.key, token, startdate, enddate)
+            .listTransactionDetail(Constant.appId, Constant.key, token, startdate, enddate)
             .enqueue(object : Callback<TransactionResponse> {
                 override fun onFailure(call: Call<TransactionResponse>, t: Throwable) {
                     Toast.makeText(this@FilteredTransaction, t.message, Toast.LENGTH_LONG).show()

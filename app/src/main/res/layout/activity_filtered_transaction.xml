@@ -25,42 +25,42 @@
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
         <LinearLayout
-            android:layout_marginTop="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
             android:gravity="center_horizontal"
+            android:orientation="horizontal"
             android:padding="10dp">
 
             <TextView
                 android:id="@+id/tanggal_mulai"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/opensans_semibold"
-                android:text="Start date"
-                android:textSize="15dp"
-                android:gravity="start"
-                android:textColor="@color/white"
+                android:layout_marginEnd="30dp"
                 android:background="@drawable/sukses_bg"
-                android:layout_marginEnd="30dp"/>
+                android:fontFamily="@font/opensans_semibold"
+                android:gravity="start"
+                android:text="@string/startdate"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
 
             <View
                 android:layout_width="30dp"
                 android:layout_height="2dp"
-                android:background="#AAAAAA"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"
+                android:background="#AAAAAA" />
 
             <TextView
                 android:id="@+id/tanggal_akhir"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/opensans_semibold"
-                android:text="Start date"
-                android:textSize="15dp"
-                android:gravity="end"
-                android:textColor="@color/white"
                 android:layout_marginStart="30dp"
-                android:background="@drawable/sukses_bg"/>
+                android:background="@drawable/sukses_bg"
+                android:fontFamily="@font/opensans_semibold"
+                android:gravity="end"
+                android:text="@string/enddate"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
 
         </LinearLayout>
 
@@ -68,27 +68,13 @@
             android:id="@+id/swipe_transaksi2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/tv_inputan_customer"
             android:layout_marginTop="5dp">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_transaksi2"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent" />
 
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
     </LinearLayout>
-
-<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
-<!--        android:id="@+id/btn_filter"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_gravity="end|bottom"-->
-<!--        android:layout_margin="16dp"-->
-<!--        android:backgroundTint="#0F8AF9"-->
-<!--        android:elevation="6dp"-->
-<!--        android:src="@drawable/icon_filter"-->
-<!--        app:fabSize="normal" />-->
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

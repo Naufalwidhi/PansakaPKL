@@ -1,50 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:padding="10dp"
-    android:gravity="center_horizontal">
+    android:padding="10dp">
 
     <ImageView
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:src="@drawable/logout"/>
+        android:src="@drawable/logout"
+        tools:ignore="ContentDescription" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/apakah_anda_yakin"
-            android:gravity="center"
-            android:fontFamily="@font/opensans_semibold"
-            android:textColor="@color/black"
-            android:textSize="20sp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/opensans_semibold"
+        android:gravity="center"
+        android:text="@string/apakah_anda_yakin"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_marginTop="20dp"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/btn_logout_tidak"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:text="@string/tidak"
             android:background="@drawable/dibatalkan_bg"
             android:fontFamily="@font/opensans_bold"
-            android:textColor="@color/white"/>
+            android:text="@string/tidak"
+            android:textColor="@color/white"
+            tools:ignore="ButtonStyle" />
 
         <Button
             android:id="@+id/btn_logout_iya"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:text="@string/iya"
             android:layout_marginStart="20dp"
             android:background="@drawable/sukses_bg"
             android:fontFamily="@font/opensans_bold"
-            android:textColor="@color/white"/>
+            android:text="@string/iya"
+            android:textColor="@color/white"
+            tools:ignore="ButtonStyle" />
 
     </LinearLayout>
 

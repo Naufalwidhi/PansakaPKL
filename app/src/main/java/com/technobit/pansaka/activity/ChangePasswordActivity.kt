@@ -8,11 +8,10 @@ import android.widget.EditText
 import android.widget.Toast
 import com.technobit.pansaka.R
 import com.technobit.pansaka.api.Client
-import com.technobit.pansaka.api.constant
+import com.technobit.pansaka.api.Constant
 import com.technobit.pansaka.model.ChangeResponse
 import com.technobit.pansaka.model.PrefsToken
 import kotlinx.android.synthetic.main.activity_change_password.*
-import kotlinx.android.synthetic.main.activity_detail_transaksi.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -62,7 +61,7 @@ class ChangePasswordActivity : AppCompatActivity() {
 
     private fun gantipassword(passbaru: String) {
         val token = "Bearer "+myPreftoken.getusertoken()
-        Client.myApiClient().changepassword(constant.appId, constant.key, token, passbaru)
+        Client.myApiClient().changepassword(Constant.appId, Constant.key, token, passbaru)
             .enqueue(object : Callback<ChangeResponse>{
                 override fun onFailure(call: Call<ChangeResponse>, t: Throwable) {
                     Toast.makeText(this@ChangePasswordActivity, t.message, Toast.LENGTH_LONG).show()

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardElevation="2dp"
     app:cardCornerRadius="2dp"
+    app:cardElevation="2dp"
     app:cardUseCompatPadding="true">
 
     <LinearLayout
@@ -35,7 +35,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:fontFamily="@font/opensans_semibold"
-                    android:text="Sepatu Converse"
+                    android:text="@string/nama_produk"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
 
@@ -46,7 +46,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginStart="10dp"
                     android:gravity="bottom"
-                    android:text="Converse Indonesia"
+                    android:text="@string/toko_produk"
                     android:textColor="#6C6C6C"
                     android:textSize="12sp" />
 
@@ -55,45 +55,45 @@
         </LinearLayout>
 
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="end"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txt_detail_transaksi_dashboard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/opensans_semibold"
+                android:text="@string/detailtransaksi"
+                android:textColor="#0F8AF9"
+                android:textSize="13sp" />
+
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:orientation="vertical"
-                android:gravity="end">
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/txt_detail_transaksi_dashboard"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/opensans_semibold"
-                    android:text="Detail Transaksi"
-                    android:textColor="#0F8AF9"
-                    android:textSize="13sp" />
-
-                <LinearLayout
+                    android:id="@+id/jumlah_pcs_dashboard"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal">
+                    android:gravity="bottom"
+                    android:text="@string/quantity"
+                    android:textColor="#555555"
+                    android:textSize="12sp" />
 
-                    <TextView
-                        android:id="@+id/jumlah_pcs_dashboard"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:text="2"
-                        android:textColor="#555555"
-                        android:textSize="11sp"
-                        android:gravity="bottom"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text=" PCS"
-                        android:textSize="11sp"/>
-
-                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pcs"
+                    android:textSize="12sp" />
 
             </LinearLayout>
 
         </LinearLayout>
+
+    </LinearLayout>
 
 </androidx.cardview.widget.CardView>

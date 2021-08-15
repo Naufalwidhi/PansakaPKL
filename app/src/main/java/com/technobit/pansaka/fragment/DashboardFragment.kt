@@ -1,7 +1,5 @@
 package com.technobit.pansaka.fragment
 
-import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,14 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
-import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.technobit.pansaka.R
 import com.technobit.pansaka.adapter.TransaksiDashboardAdapter
 import com.technobit.pansaka.adapter.TransaksiDashboardListener
 import com.technobit.pansaka.api.Client
-import com.technobit.pansaka.api.constant
+import com.technobit.pansaka.api.Constant
 import com.technobit.pansaka.model.*
 import kotlinx.android.synthetic.main.fragment_dashboard.*
 import retrofit2.Call
@@ -66,7 +63,7 @@ class DashboardFragment : Fragment(), TransaksiDashboardListener {
     private fun loadsummary() {
         token = "Bearer " + myPreftoken.getusertoken()
         Client.myApiClient()
-            .summary(constant.appId, constant.key, token)
+            .summary(Constant.appId, Constant.key, token)
             .enqueue(object : Callback<DashboardSummaryResponse> {
                 override fun onResponse(
                     call: Call<DashboardSummaryResponse>,
@@ -81,10 +78,14 @@ class DashboardFragment : Fragment(), TransaksiDashboardListener {
                             val totalbuyer3 = it.data[0].totalbuyer
                             val totalseller4 = it.data[0].totalseller
                             val omset = currencyformat.format(totalomset2.toInt())
-                            tv_total_transaksi_dashboard.text = totaltransaksi1
-                            tv_total_omset_dashboard.text = "IDR "+omset.toString()
-                            tv_total_buyer_dashboard.text = totalbuyer3
-                            tv_total_seller_dashboard.text = totalseller4
+                            val buyer = currencyformat.format(totalbuyer3.toInt())
+                            val seller = currencyformat.format(totalseller4.toInt())
+                            val transaksi = currencyformat.format(totaltransaksi1.toInt())
+                            val hasilomset = "IDR "+ omset.toString()
+                            tv_total_transaksi_dashboard.text = transaksi
+                            tv_total_omset_dashboard.text = hasilomset
+                            tv_total_buyer_dashboard.text = buyer
+                            tv_total_seller_dashboard.text = seller
                         }
                     }
                 }
@@ -99,7 +100,7 @@ class DashboardFragment : Fragment(), TransaksiDashboardListener {
     private fun loadTransaksi() {
         token = "Bearer " + myPreftoken.getusertoken()
         Client.myApiClient()
-            .listtransaction(constant.appId, constant.key, token)
+            .listtransaction(Constant.appId, Constant.key, token)
             .enqueue(object : Callback<DashboardListTransactionResponse> {
                 override fun onFailure(call: Call<DashboardListTransactionResponse>, t: Throwable) {
                     Toast.makeText(context, t.message, Toast.LENGTH_SHORT).show()

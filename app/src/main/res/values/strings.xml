@@ -68,8 +68,9 @@
     <string name="harga_transaksi">Rp12.000.000</string>
     <string name="no_invoice">#490122512</string>
     <string name="toko_produk">Converse Indonesia</string>
-    <string name="nama_produk">Sepatu Converse Oldschool</string>
-    <string name="quantity">12 PCS</string>
+    <string name="nama_produk">Sepatu Converse</string>
+    <string name="quantity">12</string>
+    <string name="pcs"> PCS</string>
     <string name="total_harga">Total Harga</string>
     <string name="jumlah_barang">Jumlah Barang</string>
     <string name="detail_pemesanan">Detail Pemesanan</string>
@@ -77,5 +78,14 @@
     <string name="apakah_anda_yakin">Apakah anda yakin ?</string>
     <string name="iya">Iya</string>
     <string name="tidak">Tidak</string>
+
+    <string name="exemail">example@gmail.com</string>
+    <string name="alamat">Malang</string>
+    <string name="filter">Filter</string>
+    <string name="startdate">Start date</string>
+    <string name="enddate">End date</string>
+    <string name="bulan">Agustus</string>
+    <string name="setfilter">Set Filter</string>
+    <string name="detailtransaksi">Detail Transaksi</string>
 
 </resources>

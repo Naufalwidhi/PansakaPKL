@@ -29,7 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:layout_margin="15dp"
-            android:src="#F1F1F1"/>
+            android:src="#F1F1F1" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -105,12 +105,12 @@
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_gravity="end"
-                        android:src="@drawable/icon_more" />
+                        android:src="@drawable/icon_more"
+                        tools:ignore="ContentDescription" />
 
                 </LinearLayout>
 
             </LinearLayout>
-
 
             <View
                 android:layout_width="match_parent"
@@ -152,15 +152,15 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="end"
                     android:layout_marginTop="15dp"
-                    >
+                    android:gravity="end">
 
                     <ImageView
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_gravity="end"
-                        android:src="@drawable/icon_more" />
+                        android:src="@drawable/icon_more"
+                        tools:ignore="ContentDescription" />
 
                 </LinearLayout>
 

@@ -15,7 +15,7 @@ import com.technobit.pansaka.activity.DetailTransaksiActivity
 import com.technobit.pansaka.adapter.TransaksiAdapter
 import com.technobit.pansaka.adapter.TransaksiListener
 import com.technobit.pansaka.api.Client
-import com.technobit.pansaka.api.constant
+import com.technobit.pansaka.api.Constant
 import com.technobit.pansaka.model.PrefsToken
 import com.technobit.pansaka.model.Transaction
 import com.technobit.pansaka.model.TransactionResponse
@@ -82,7 +82,7 @@ class TransaksiFragment : Fragment(), TransaksiListener {
         swipe_transaksi?.isRefreshing = true
 
         Client.myApiClient()
-            .listTransactionDetail(constant.appId, constant.key, token, starttime, endtime)
+            .listTransactionDetail(Constant.appId, Constant.key, token, starttime, endtime)
             .enqueue(object : Callback<TransactionResponse> {
                 override fun onFailure(call: Call<TransactionResponse>, t: Throwable) {
                     Toast.makeText(context, t.message, Toast.LENGTH_LONG).show()

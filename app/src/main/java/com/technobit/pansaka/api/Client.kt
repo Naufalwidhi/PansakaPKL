@@ -1,7 +1,5 @@
 package com.technobit.pansaka.api
 
-import com.google.gson.GsonBuilder
-import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -9,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 object Client {
 
     val  retrofit = Retrofit.Builder()
-        .baseUrl(constant.BASE_URL)
+        .baseUrl(Constant.BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 

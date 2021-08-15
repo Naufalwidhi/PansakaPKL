@@ -18,11 +18,6 @@ class TransaksiAdapter(val listener: TransaksiListener) : RecyclerView.Adapter<T
         transaksiData.addAll(data)
         notifyDataSetChanged()
     }
-//
-//    fun addData(Transaction: Transaction) {
-//        transaksiData.add(Transaction)
-//        notifyDataSetChanged()
-//    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TransaksiVH {
         val view = LayoutInflater
@@ -40,34 +35,24 @@ class TransaksiAdapter(val listener: TransaksiListener) : RecyclerView.Adapter<T
     override fun onBindViewHolder(holder: TransaksiVH, position: Int) {
         holder.bind(transaksiData[position], listener)
     }
-
 }
 
 class TransaksiVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
     fun bind(data: Transaction, listener: TransaksiListener) {
-
         itemView.nama_produk_dashboard?.text = data.name
         itemView.nama_toko_dashboard?.text = data.shop
         itemView.jumlah_pcs_dashboard?.text = data.qty
         itemView.img_produk_dashboard?.apply {
-
-//            load gambar
             Glide.with(context)
                 .load(data.product_image)
                 .into(this)
-
         }
         itemView.rootView.setOnClickListener {
             listener.onClick(adapterPosition, data)
-
         }
     }
-
 }
 
 interface TransaksiListener {
-
     fun onClick(position: Int, transaksi: Transaction)
-
 }
